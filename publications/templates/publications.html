@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mb-2">
+            {% for pub in publications %}
+                <div class="col-md-4">
+                    <div class="row g-0 rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative overlay-01dp">
+                        <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">{{ pub.type }}</strong>
+                        <a class="h3 pub-title card-title pb-2" href="#">{{ pub.title }}</a>
+                        <div class="row justify-content-between card-subtitle text-light-regular g-0">
+                            <p class="col-10">{{ pub.journal }}</p>
+                            <p class="col-2">{{ pub.year }}</p>
+                            <p class="col-12">{{ pub.get_author_names }}</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
