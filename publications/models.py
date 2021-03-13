@@ -22,6 +22,9 @@ class Publication(models.Model):
     def __str__(self):
         author_names = ''.join(author.name + ', ' for author in self.authors.all())
         return author_names + str(self.year)
+    
+    def get_author_names(self):
+        return ''.join(author.name + ', ' for author in self.authors.all())
 
 class Author(models.Model):
     name = models.CharField(max_length=200)
