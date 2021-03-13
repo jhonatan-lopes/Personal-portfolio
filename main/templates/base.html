@@ -7,16 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/e18a033044.js" crossorigin="anonymous"></script>
 
-    <!-- Our css -->
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+
+    <!-- My css -->
     <link rel="stylesheet" type="text/css" href="{% static 'main/custom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/material_dark.css' %}">
 
     
-
     <title>Personal portfolio</title>
 </head>
 
@@ -25,20 +29,20 @@
 
     <!-- Navigation bar -->
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="main-navbar">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark-1" id="main-navbar">
             <div class="container">
-                <a class="navbar-brand mr-4" href="#">DrJPLopes</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand me-4 text-cursive" href="#">Dr JPLop<em class="text-light">&epsilon;</em>s</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                 <!-- Navbar Right Side -->
-                    <div class="navbar-nav ml-auto">
-                        <a class="nav-link active" href="{% url 'home'%}">Home <span class="sr-only">(current)</span></a>
-                        <a class="nav-link" href="{% url 'about'%}">About</a>
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">About</a>
                         <a class="nav-link" href="#">Abilities</a>
                         <a class="nav-link" href="#">Projects</a>
-                        <a class="nav-link" href="#">Publications</a>
+                        <a class="nav-link" href="#">publications</a>
                         <a class="nav-link" href="#">Blog</a>
                         <a class="nav-link" href="#">Contact</a>
                     </div>
@@ -48,37 +52,44 @@
         </nav>
     </header>
 
-    <div class="container">
-        {% block content %}
-        {% endblock %}
-    </div>
+    
+    {% block content %}
+    {% endblock %}
+    
     
 
     <!--Footer-->
-    <footer class="footer bg-transparent pt-5">
-        <div class="container">
+    <footer class="footer py-5 bg-dark-1 text-light">
+        <div class="container text-center">
             <!-- Contact links -->
-            <div class="row ">
-                <div class="col-md-6 ">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fas fa-envelope"></i></a>
+            <div class="row  ">
+                <div class="col-md-12 ">
+                    <a href="#"><i class="fab fa-linkedin-in social-icon"></i></a>
+                    <a href="#"><i class="fab fa-github social-icon"></i></a>
+                    <a href="#"><i class="fas fa-envelope social-icon"></i></a>
                 </div>
             </div>
+            <br>
             <!-- Copyright -->
             <div class="row ">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <small>&copy; Jhonatan da Ponte Lopes, 2021. All rights reserved.</small>
                 </div>
             </div>
+            <br>
+            <br>
              
         </div>
     </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+
+    <!-- Typed javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <script src="{% static 'main/typing_animation.js'%}">
+    </script>
+
 </body>

@@ -1,32 +1,72 @@
 :root{
+  --dark-1: #151515;
+  --dark-2: #343434;
+  --light-1: #fff;
+  --light-2: #f8f8f8;
   --primary: #F17300;
-  --light: #FFFFFF;
-  --dark: #121212;
 }
-/* Colors */
 
+/* Body */
 body {
-  background-color: var(--dark);
-  color: var(--light);
+  background-color: var(--dark-1);
+  color: var(--light-1)!important;
   margin-top: 5rem;
 }
 
 
-#main-navbar {
-  background-color: var(--dark);
+/* Backgrounds */
+
+.bg-dark-1 {
+  background: var(--dark-1)
 }
 
+.bg-dark-2 {
+  background: var(--dark-2)
+}
+
+/* Text colors */
+
+.text-primary {
+  color: var(--primary)!important;
+}
+
+.social-icon {
+  color: var(--light-1);
+}
+
+/* Fonts */
+.text-cursive {
+  font-family: 'Courgette', cursive;
+}
+
+/* Hero jumbotron */
+
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: var(--dark-1);
+  border-radius: .3rem;
+}
+
+.typed-cursor{
+  font-size: 3.0rem;
+}
+
+/* Publications */
+
+.pub-title {
+  color: var(--light-1);
+  text-decoration: none;
+}
+
+a.pub-title:hover {
+  color: var(--light-2);
+  text-decoration: none;
+}
+
+/* Add a bar to the bottom of active link*/ 
 @media screen and (min-width: 600px) {
   .nav-link.active {
     border-bottom: 0.3rem solid var(--primary);
   }
 } 
-
-
-.text-accent {
-  color: var(--primary);
-}
-
-i {
-  color: var(--light);
-}

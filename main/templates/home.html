@@ -1,10 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="jumbotron jumbotron-fluid bg-transparent">
+    <!-- I'm Jhonatan -->
+    <div class="my-3 jumbotron jumbotron-fluid bg-dark-1">
         <div class="container">
             <h1 class="display-3">Hi, I'm Jhonatan</h1>
-            <p class="display-4">A <span class="text-accent">problem solver</span></p>
+            <div id="typed-strings">
+                <p>An <span class="text-primary">engineer</span></p>
+                <p>A <span class="text-primary">mechanical engineer</span></p>
+                <p>A <span class="text-primary">programmer</span></p>
+                <p>A <span class="text-primary">scientist</span></p>
+                <p>A <span class="text-primary">problem solver</span></p>
+                <p>A <span class="text-primary">problem solver</span>.</p>
+            </div>
+            <span id="typed" class="display-4"></span>
+            <br>
+        </div>
+    </div>
+
+    <!-- My job is -->
+    <div class="my-3 jumbotron jumbotron-fluid bg-dark-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-4">
+                    <h1 class="display-6 text-end">My job is to apply my skills to solve everyday problems, ranging from <emp class="text-primary">designing new prosthetic devices</emp> for children…</h1>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- My job is -->
+    <div class="my-3 jumbotron jumbotron-fluid bg-dark-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h1 class="display-6 text-start">…to <emp class="text-primary">creating mathematical models</emp> that allow us to understand why it's easier to pull out a wine cork after it's been twisted.</h1>
+                    <br>
+                </div>
+                <div class="col-md-8"></div>
+            </div>
         </div>
     </div>
 {% endblock %}
