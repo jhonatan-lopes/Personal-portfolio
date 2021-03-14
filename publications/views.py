@@ -8,4 +8,3 @@ class PublicationsListView(ListView):
     template_name = 'publications.html'
     context_object_name = 'publications'
     ordering = ['-year']
-    paginate_by = 5

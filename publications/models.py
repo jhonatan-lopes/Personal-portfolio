@@ -19,17 +19,34 @@ class Publication(models.Model):
     type = models.CharField(max_length=2,choices=TYPE_CHOICES,default='AR')
     journal = models.CharField(max_length=200, default="")
 
-    def __str__(self):
-        author_names = ''.join(author.name + ', ' for author in self.authors.all())
-        return author_names + str(self.year)
-    
     def get_author_names(self):
-        return ''.join(author.name + ', ' for author in self.authors.all())
+        return ', '.join(author.get_abbreviated_name() for author in self.authors.all())
+
+    def __str__(self):
+        author_names = self.get_author_names()
+        short_title = ' '.join(self.title.split(' ')[:5]) # Only four first words
+        return f"{author_names}, {self.year}  - {short_title}"
+    
+    
 
 class Author(models.Model):
-    name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    given_names = models.CharField(max_length=200)
+    email = models.EmailField()
+    institution = models.CharField(max_length=200)
+
+    def get_given_names_initials(self):
+        given_names = self.given_names.strip(" .,!?#%^&*$£\"\'<>\\/{}[]@;:~`¬|<> ").split(" ")
+        initials = ""
+        for name in given_names:
+            if name[0].isupper():
+                initials += name[0] + "."
+        return initials
+
+    def get_abbreviated_name(self):
+        return f"{self.last_name},  {self.get_given_names_initials()}"
 
     def __str__(self):
-        return self.name
+        return f"{self.get_abbreviated_name()} - {self.institution}"
 
 
