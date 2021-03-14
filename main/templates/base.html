@@ -38,11 +38,11 @@
                 <div class="collapse navbar-collapse" id="navbarToggle">
                 <!-- Navbar Right Side -->
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link active" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
                         <a class="nav-link" href="#">Abilities</a>
                         <a class="nav-link" href="#">Projects</a>
-                        <a class="nav-link" href="#">publications</a>
+                        <a class="nav-link" href="{% url 'publications-list' %}">Publications</a>
                         <a class="nav-link" href="#">Blog</a>
                         <a class="nav-link" href="#">Contact</a>
                     </div>
