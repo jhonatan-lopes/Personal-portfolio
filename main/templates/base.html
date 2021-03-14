@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'main/material_dark.css' %}">
 
     
-    <title>Personal portfolio</title>
+    <title>Dr Jhonatan da Ponte Lopes</title>
 </head>
 
 
@@ -38,13 +38,15 @@
                 <div class="collapse navbar-collapse" id="navbarToggle">
                 <!-- Navbar Right Side -->
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-link active" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                        <a class="nav-link" href="{% url 'about' %}">About</a>
-                        <a class="nav-link" href="#">Abilities</a>
-                        <a class="nav-link" href="#">Projects</a>
-                        <a class="nav-link" href="{% url 'publications-list' %}">Publications</a>
-                        <a class="nav-link" href="#">Blog</a>
-                        <a class="nav-link" href="#">Contact</a>
+                        {% with request.resolver_match.url_name as url_name %}
+                            <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link {% if url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">About</a>
+                            <a class="nav-link" href="#">Abilities</a>
+                            <a class="nav-link" href="#">Projects</a>
+                            <a class="nav-link {% if url_name == 'publications-list' %}active{% endif %}" href="{% url 'publications-list' %}">Publications</a>
+                            <a class="nav-link" href="#">Blog</a>
+                            <a class="nav-link" href="#">Contact</a>
+                        {% endwith %}
                     </div>
                     
                 </div>
