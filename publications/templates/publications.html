@@ -9,12 +9,12 @@
                         <div class="col p-4 d-flex flex-column justify-content-between">
                             <div class="row mb-3">
                                 <strong class="d-inline-block mb-2 text-primary">{{ pub.get_type_display }}</strong>
-                                <a class="h3 pub-title card-title pb-2" href={{ pub.link }}>{{ pub.title }}</a>
+                                <a class="h3 pub-title card-title pb-2" {% if pub.link %}href={{ pub.link }}{% endif %}>{{ pub.title }}</a>
                             </div>
                             <div class="row justify-content-between card-subtitle text-light-regular">
-                                <p class="col-12">{{ pub.journal }}</p>
-                                <p class="col-10">{{ pub.get_author_names }}</p>
-                                <p class="col-2">{{ pub.year }}</p>
+                                <p class="col-12">{{ pub.publisher }}</p>
+                                <p class="col-9">{{ pub.authors|safe }}</p>
+                                <p class="col-3">{{ pub.year }}</p>
                             </div>
                         </div>
                     </div>
