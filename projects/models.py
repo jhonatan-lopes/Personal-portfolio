@@ -2,6 +2,7 @@ from django.db import models
 from taggit.managers import TaggableManager
 from taggit.models import TagBase, GenericTaggedItemBase
 import tagulous.models
+from markdownx.models import MarkdownxField
 
 # class KindTag(TagBase):
 #     # ... fields here
@@ -57,6 +58,8 @@ class Project(models.Model):
         case_sensitive = False,
         space_delimiter = False
     )
+
+    content = MarkdownxField()
 
     @staticmethod
     def get_tags_string(tags):
