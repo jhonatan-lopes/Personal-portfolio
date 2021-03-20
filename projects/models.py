@@ -1,37 +1,8 @@
 from django.db import models
-from taggit.managers import TaggableManager
-from taggit.models import TagBase, GenericTaggedItemBase
-import tagulous.models
 from markdownx.models import MarkdownxField
-
-# class KindTag(TagBase):
-#     # ... fields here
-#     pass
-
-#     # ... methods (if any) here
-
-# class TaggedKinds(GenericTaggedItemBase):
-#     tag = models.ForeignKey(
-#         KindTag,
-#         on_delete=models.CASCADE,
-#         related_name="%(app_label)s_%(class)s_items",
-#     )
+import tagulous.models
 
 
-# class TechnologyTag(TagBase):
-#     # ... fields here
-#     pass
-
-#     # ... methods (if any) here
-
-# class TaggedTechnologies(GenericTaggedItemBase):
-#     tag = models.ForeignKey(
-#         TechnologyTag,
-#         on_delete=models.CASCADE,
-#         related_name="%(app_label)s_%(class)s_items",
-#     )
-
-# Create your models here.
 class Project(models.Model):
 
     title = models.CharField(
@@ -60,6 +31,11 @@ class Project(models.Model):
     )
 
     content = MarkdownxField()
+
+    thumbnail = models.ImageField(
+        default = "Default_project_thumbnail.jpg",
+        upload_to = "Projects thumbnails"
+    )
 
     @staticmethod
     def get_tags_string(tags):
