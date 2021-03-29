@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,700;1,900&family=Prompt:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 :root{
-  --dark-1: #151515;
-  --dark-2: #343434;
+  --dark-1: #343647;
+  --dark-2: #252734;
   --light-1: #fff;
-  --light-2: #f8f8f8;
-  --primary: #F17300;
+  --light-2: #E9EAEB;
+  --primary: #F78502;
+  --display-font-family:  'Merriweather', serif;
+  --highligh-font-family: 'Prompt', sans-serif;
+  --main-font-family: 'Quicksand', sans-serif;
 }
 
 /* Body */
@@ -11,6 +16,7 @@ body {
   background-color: var(--dark-1);
   color: var(--light-1)!important;
   margin-top: 5rem;
+  font-family: var(--main-font-family);
 }
 
 
@@ -22,6 +28,22 @@ body {
 
 .bg-dark-2 {
   background: var(--dark-2)
+}
+
+/* Font families */
+
+.font-display {
+  font-family: var(--display-font-family);
+  font-weight: 700;
+  font-style: oblique;
+}
+
+.font-highlight {
+  font-family: var(--highlight-font-family)
+}
+
+.font-main {
+  font-family: var(--main-font-family)
 }
 
 /* Text colors */
@@ -44,8 +66,9 @@ body {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: var(--dark-1);
   border-radius: .3rem;
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 .typed-cursor{
@@ -64,9 +87,65 @@ a.pub-title:hover {
   text-decoration: none;
 }
 
+/* Projects */
+
+.proj-card {
+  background-color: rgba(255,255,255,0.05);
+  background-clip: border-box;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  display: flex;
+  border-radius: 0.25rem;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.proj-card:hover{
+  background-color: rgba(255,255,255,0.07);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.24);
+}
+
+.proj-title {
+  color: var(--light-1);
+  text-decoration: none;
+}
+
+a.proj-title:hover {
+  color: var(--light-2);
+  text-decoration: none;
+}
+
+.proj-card img {
+  width: 60%;
+  opacity: 0.5;
+  background-color: var(--dark-1);
+  border-radius: 0.25rem 0rem 0rem 0.25rem;
+}
+
+@media screen and (max-width: 750px) {
+  .proj-card {
+    flex-direction: column;
+  }
+
+  .proj-card img {
+      width: 100%;
+      border-radius: 0.25rem 0.25rem 0rem 0rem;
+  }
+} 
+
 /* Add a bar to the bottom of active link*/ 
 @media screen and (min-width: 600px) {
   .nav-link.active {
     border-bottom: 0.3rem solid var(--primary);
   }
 } 
+
+/* Prosthetic Hand SVG */
+
+.img-svg path, line, polyline {
+  stroke: var(--light-1);
+}
+
+.img-svg {
+  height: 500px;
+}

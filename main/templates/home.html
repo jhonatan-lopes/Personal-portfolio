@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
     <!-- I'm Jhonatan -->
     <div class="my-3 jumbotron jumbotron-fluid bg-dark-1">
@@ -19,28 +20,25 @@
     </div>
 
     <!-- My job is -->
-    <div class="my-3 jumbotron jumbotron-fluid bg-dark-1">
+    <div class="my-3 jumbotron jumbotron-fluid bg-dark-2">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8"></div>
+            <div class="row d-flex align-items-center">
+                <div class="col-md-8">
+                    {% include "prosthetic_hand.html" %}
+                </div>
                 <div class="col-md-4">
-                    <h1 class="display-6 text-end">My job is to apply my skills to solve everyday problems, ranging from <emp class="text-primary">designing new prosthetic devices</emp> for children…</h1>
+                    <p class="text-start">My job is to apply my skills to solve everyday problems, ranging from <emp class="text-primary">designing new prosthetic devices</emp> for children…</p>
                     <br>
+                </div>
+                <div class="col-md-4">
+                    <p class="text-end">…to <emp class="text-primary">developing mathematical models</emp> that allow us to understand why it's easier to pull out a wine cork after it's been twisted.</p>
+                    <br>
+                </div>
+                <div class="col-md-8">
+                    {% include "contact_graph.html" %}
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- My job is -->
-    <div class="my-3 jumbotron jumbotron-fluid bg-dark-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h1 class="display-6 text-start">…to <emp class="text-primary">creating mathematical models</emp> that allow us to understand why it's easier to pull out a wine cork after it's been twisted.</h1>
-                    <br>
-                </div>
-                <div class="col-md-8"></div>
-            </div>
-        </div>
-    </div>
 {% endblock %}
