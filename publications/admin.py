@@ -4,7 +4,7 @@ from .models import Publication
 
 
 class PublicationAdmin(admin.ModelAdmin):
-    list_display = ["title", "year", "authors_safe", "type", "publisher"]
+    list_display = ["title", "year", "authors_safe", "kind", "publisher"]
 
     def authors_safe(self, obj):
         # Returns authors field unescaped so it can be rendered properly in

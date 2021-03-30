@@ -39,7 +39,7 @@ class Publication(models.Model):
         (BOOK_CHAPTER, 'Book Chapter'),
         (PATENT, 'Patent')
     ]
-    type = models.CharField(
+    kind = models.CharField(
         max_length=2,
         choices=TYPE_CHOICES,
         default='AR',
@@ -51,7 +51,7 @@ class Publication(models.Model):
         help_text="Journal, publisher, patent provider, etc.")
 
     class Meta:
-        ordering = ['type','year', 'title']
+        ordering = ['kind','year', 'title']
 
     def get_author_names(self):
         return ', '.join(author.get_abbreviated_name() for author in self.authors.all())

@@ -7,4 +7,4 @@ class PublicationsListView(ListView):
     model = Publication
     template_name = 'publications.html'
     context_object_name = 'publications'
-    ordering = ['type','-year']
+    ordering = ['kind','-year']
