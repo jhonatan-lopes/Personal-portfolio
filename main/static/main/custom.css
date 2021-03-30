@@ -7,7 +7,7 @@
   --light-2: #E9EAEB;
   --primary: #F78502;
   --display-font-family:  'Merriweather', serif;
-  --highligh-font-family: 'Prompt', sans-serif;
+  --highlight-font-family: 'Prompt', sans-serif;
   --main-font-family: 'Quicksand', sans-serif;
 }
 
@@ -39,7 +39,8 @@ body {
 }
 
 .font-highlight {
-  font-family: var(--highlight-font-family)
+  font-family: var(--highlight-font-family);
+  font-weight: 500;
 }
 
 .font-main {
@@ -89,20 +90,29 @@ a.pub-title:hover {
 
 /* Projects */
 
+@keyframes ColorChange {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
 .proj-card {
-  background-color: rgba(255,255,255,0.05);
-  background-clip: border-box;
+  background: var(--dark-2);
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, var(--dark-2) 50%, var(--primary) 50.1%);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  display: flex;
-  border-radius: 0.25rem;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 1rem;
+  border-radius: 0 0 1rem 0;
+  transition: background-position 0.2s ease-out;
+  border: 0;
 }
 
 .proj-card:hover{
-  background-color: rgba(255,255,255,0.07);
+  background-position: 0 -100%;
   box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.24);
+}
+
+.proj-card:hover strong{
+  color: var(--dark-2);
 }
 
 .proj-title {
@@ -116,22 +126,18 @@ a.proj-title:hover {
 }
 
 .proj-card img {
-  width: 60%;
-  opacity: 0.5;
-  background-color: var(--dark-1);
-  border-radius: 0.25rem 0rem 0rem 0.25rem;
+  width: 100%;
+  height: 15rem;
+  border-radius: 0 0 0 0;
+  object-fit: cover;
 }
 
-@media screen and (max-width: 750px) {
-  .proj-card {
-    flex-direction: column;
-  }
-
-  .proj-card img {
-      width: 100%;
-      border-radius: 0.25rem 0.25rem 0rem 0rem;
-  }
-} 
+.proj-categories {
+  font-family: var(--highlight-font-family);
+  font-weight: 500;
+  color: var(--primary);
+}
+ 
 
 /* Add a bar to the bottom of active link*/ 
 @media screen and (min-width: 600px) {

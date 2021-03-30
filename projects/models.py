@@ -33,7 +33,7 @@ class Project(models.Model):
     content = MarkdownxField()
 
     thumbnail = models.ImageField(
-        default = "Default_project_thumbnail.jpg",
+        default = "Default_project_thumbnail.png",
         upload_to = "Projects thumbnails"
     )
 
