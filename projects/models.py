@@ -11,12 +11,8 @@ class Project(models.Model):
         unique=True
     )
 
-    year = models.SmallIntegerField()
-
-    hyperlink = models.URLField(
-        blank=True,
-        verbose_name="External hyperlink",
-        help_text = "Redirects to project's external webpage."
+    year = models.CharField(
+        max_length=255,
     )
 
     categories = tagulous.models.TagField(
@@ -30,12 +26,29 @@ class Project(models.Model):
         space_delimiter = False
     )
 
-    content = MarkdownxField()
+    priority = models.PositiveSmallIntegerField(
+        default=1,
+        verbose_name="Display Priority",
+        help_text = "An integer that represents a priority for displaying the project. A value of 1 will be displayed higher than a value of 2."
+    )
 
     thumbnail = models.ImageField(
         default = "Default_project_thumbnail.png",
-        upload_to = "Projects thumbnails"
+        upload_to = "Projects thumbnails",
     )
+
+    banner = models.ImageField(
+        default = "Default_project_banner.png",
+        upload_to = "Projects banners",
+    )
+
+    hyperlink = models.URLField(
+        blank=True,
+        verbose_name="External hyperlink",
+        help_text = "Redirects to project's external webpage."
+    )
+
+    content = MarkdownxField()
 
     @staticmethod
     def get_tags_string(tags):
