@@ -76,25 +76,7 @@ body {
   font-size: 3.0rem;
 }
 
-/* Publications */
-
-.pub-title {
-  color: var(--light-1);
-  text-decoration: none;
-}
-
-a.pub-title:hover {
-  color: var(--light-2);
-  text-decoration: none;
-}
-
 /* Projects */
-
-@keyframes ColorChange {
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
 
 .proj-card {
   background: var(--dark-2);
@@ -137,7 +119,41 @@ a.proj-title:hover {
   font-weight: 500;
   color: var(--primary);
 }
- 
+
+
+/* Publications */
+
+
+
+.pub-card {
+  background: var(--dark-2);
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, var(--dark-2) 50%, var(--primary) 50.1%);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius: 0 0 1rem 0;
+  transition: background-position 0.2s ease-out;
+  border: 0;
+}
+
+.pub-card:hover{
+  background-position: 0 -100%;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.24);
+}
+
+.pub-card:hover strong{
+  color: var(--dark-2);
+}
+
+.pub-title {
+  color: var(--light-1);
+  text-decoration: none;
+}
+
+a.pub-title:hover {
+  color: var(--light-2);
+  text-decoration: none;
+}
+
 
 /* Add a bar to the bottom of active link*/ 
 @media screen and (min-width: 600px) {
@@ -146,7 +162,7 @@ a.proj-title:hover {
   }
 } 
 
-/* Prosthetic Hand SVG */
+/* SVGs */
 
 .img-svg path, line, polyline {
   stroke: var(--light-1);

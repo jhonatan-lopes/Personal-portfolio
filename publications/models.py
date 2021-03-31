@@ -1,32 +1,38 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models.deletion import CASCADE
+import tagulous.models
 
+class MyInfo(models.Model):
+    my_initials = models.CharField(
+        default="",
+        max_length=50,
+        verbose_name="My Initials",
+        help_text="Example: J Doe",
+    )
+
+    class Meta:
+        verbose_name = "My Info"
+        verbose_name_plural = "My Info"
+
+    def __str__(self):
+        return f"{self.my_initials}"
+
+    def save(self, *args, **kwargs):
+        self.pk = 1
+        super(MyInfo, self).save(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        pass
+
+    @classmethod
+    def load(cls):
+        obj, created = cls.objects.get_or_create(pk=1)
+        return obj
 
 class Publication(models.Model):
     """ Publication model.
     """
-    authors = models.CharField(
-        max_length=255,
-        default="",
-        verbose_name = "Authors",
-        help_text = "Example: 'F. Author, J. Doe.'. A name can be highlighted with html tags: <strong>J. Doe</strong>.", 
-        )
-    title = models.CharField(
-        max_length=200, 
-        unique=True,
-        verbose_name="Title")
-    # The year is stored as an integer without any checks.
-    # It is up to the admin to put sensible year values in the field
-    year = models.IntegerField(
-        verbose_name="Publishing Year",
-    )
-    link = models.URLField(
-        max_length=200,
-        blank=True,
-        verbose_name="External hyperlink",
-        help_text="Redirects user to publication. (e.g. DOI for article)"
-    )
     BOOK = "BK"
     ARTICLE = "AR"
     CONFERENCE_PAPER = "CF"
@@ -44,17 +50,51 @@ class Publication(models.Model):
         choices=TYPE_CHOICES,
         default='AR',
         verbose_name="Publication type")
+
+    title = models.CharField(
+        max_length=200, 
+        unique=True,
+        verbose_name="Title")
+    
+    year = models.CharField(
+        max_length=50, 
+        verbose_name="Publishing Year",
+    )
+
+    authors = models.CharField(
+        max_length=255,
+        default="",
+        verbose_name = "Authors",
+        help_text = "Example: 'F. Author, J. Doe.'. A name can be highlighted by enclosing it in html 'strong' tags: <strong>J. Doe</strong>.", 
+    )
+
+    DEFAULT_MYINFO_ID = 1
+    my_info = models.ForeignKey(
+        MyInfo,
+        on_delete=CASCADE,
+        default=DEFAULT_MYINFO_ID)
+
     publisher = models.CharField(
         max_length=200, 
         default="",
         verbose_name="Publisher",
         help_text="Journal, publisher, patent provider, etc.")
 
+    link = models.URLField(
+        max_length=200,
+        blank=True,
+        verbose_name="External hyperlink",
+        help_text="Redirects user to publication. (e.g. DOI for article)"
+    )
+
     class Meta:
         ordering = ['kind','year', 'title']
 
-    def get_author_names(self):
-        return ', '.join(author.get_abbreviated_name() for author in self.authors.all())
+    def authors_list(self):
+        authors = self.authors.replace(
+            self.my_info.my_initials,
+            "<strong>"+self.my_info.my_initials+"</strong>")
+        return authors
 
     def __str__(self):
         short_title = ' '.join(self.title.split(' ')[:5]) # Only four first words

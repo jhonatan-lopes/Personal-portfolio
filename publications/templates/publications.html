@@ -1,25 +1,28 @@
 {% extends 'base.html' %}
 
+
+
 {% block content %}
-    <div class="container">
-        <div class="row mb-2">
-            {% for pub in publications %}
-                <div class="col-md-6 col-lg-4 d-flex align-self-stretch">
-                    <div class="row overflow-hidden g-0 mb-4 card rounded overlay-01dp">
-                        <div class="col p-4 d-flex flex-column justify-content-between">
-                            <div class="row mb-3">
-                                <strong class="d-inline-block mb-2 text-primary">{{ pub.get_kind_display }}</strong>
-                                <a class="h3 pub-title card-title pb-2" {% if pub.link %}href={{ pub.link }}{% endif %}>{{ pub.title }}</a>
-                            </div>
-                            <div class="row justify-content-between card-subtitle text-light-regular">
-                                <p class="col-12">{{ pub.publisher }}</p>
-                                <p class="col-9">{{ pub.authors|safe }}</p>
-                                <p class="col-3">{{ pub.year }}</p>
-                            </div>
-                        </div>
-                    </div>
+
+<div class="container jumbotron">
+    <h1 class="text-center my-3 py-5">Publications</h1>
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-around">
+        {% for pub in publications %}
+            <div class="col">
+                <div class="card pub-card h-100 text-center">
+                    <strong class="py-2 text-primary">{{ pub.get_kind_display }}</strong>
+                    <a class="h3 pub-title card-title pb-2" {% if pub.link %}href={{ pub.link }}{% endif %}>{{ pub.title }}</a>
+                    <p class="m-0 text-muted">{{ pub.publisher }}</p>
+                    <p class="m-0 text-muted">{{ pub.authors_list|safe }}</p>
+                    <p class="mt-0  text-muted">{{ pub.year }}</p>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
     </div>
+</div>
+
 {% endblock %}
+
