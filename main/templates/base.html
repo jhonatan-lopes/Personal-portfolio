@@ -43,8 +43,8 @@
                             <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
                             <a class="nav-link {% if url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">About</a>
                             <a class="nav-link" href="#">Abilities</a>
-                            <a class="nav-link {% if url_name == 'projects-list' %}active{% endif %}" href="{% url 'projects-list' %}">Projects</a>
-                            <a class="nav-link {% if url_name == 'publications-list' %}active{% endif %}" href="{% url 'publications-list' %}">Publications</a>
+                            <a class="nav-link {% if 'project' in url_name %}active{% endif %}" href="{% url 'projects-list' %}">Projects</a>
+                            <a class="nav-link {% if 'publication' in url_name %}active{% endif %}" href="{% url 'publications-list' %}">Publications</a>
                             <a class="nav-link" href="#">Blog</a>
                             <a class="nav-link" href="#">Contact</a>
                         {% endwith %}
@@ -94,5 +94,11 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <script src="{% static 'main/typing_animation.js'%}">
     </script>
+
+    <!-- Synthax highlighting for code -->
+    <link rel="stylesheet"
+      href="{% static 'main/highlightjs/styles/dracula.css' %}">
+    <script src="{% static 'main/highlightjs/highlight.pack.js' %}"></script>
+    <script>hljs.highlightAll();</script>
 
 </body>
