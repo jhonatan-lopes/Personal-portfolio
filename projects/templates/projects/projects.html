@@ -17,7 +17,7 @@
                             {{ project.categories_list }}
                         </strong>
                         <br>
-                        <a class="h3 proj-title card-title mb-2" href="{% url 'projects-detail' project.id %}">
+                        <a class="h3 proj-title card-title mb-2" href="{{ project.get_absolute_url }}">
                             {{ project.title }}
                         </a>
                         <p class="text-light-regular card-text font-main">

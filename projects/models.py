@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+from django.utils.text import slugify
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 import tagulous.models
@@ -10,6 +12,11 @@ class Project(models.Model):
         max_length=255,
         verbose_name="Title",
         unique=True
+    )
+
+    slug = models.SlugField(
+        null=False,
+        unique=True,
     )
 
     year = models.CharField(
@@ -74,3 +81,9 @@ class Project(models.Model):
     def __str__(self):
         short_title = self.title[:50]
         return f"{self.year} - {short_title}"
+    
+    def get_absolute_url(self):
+        return reverse("projects-detail", 
+                        kwargs={
+                            "slug": self.slug})
+    

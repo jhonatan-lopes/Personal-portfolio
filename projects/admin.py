@@ -6,6 +6,7 @@ from markdownx.admin import MarkdownxModelAdmin
 class ProjectAdmin(MarkdownxModelAdmin):
     list_display = ["title", "year", "priority", "categories_list", "technologies_list"]
     list_filter = ["year", "categories", "technologies"]
+    prepopulated_fields = {'slug': ('title',)}
 tagulous.admin.enhance(Project, ProjectAdmin)
 tagulous.admin.register(Project, ProjectAdmin)
 
