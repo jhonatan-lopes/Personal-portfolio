@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'main',
     'publications',
     'projects',
+    'blog',
     'tagulous',
     'markdownx',
     'crispy_forms',

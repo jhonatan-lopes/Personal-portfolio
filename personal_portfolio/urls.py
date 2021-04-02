@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('main.urls')),
     path('', include('publications.urls')),
     path('', include('projects.urls')),
+    path('', include('blog.urls')),
     url(r'^markdownx/', include('markdownx.urls')),
 ]
 
