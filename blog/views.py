@@ -4,7 +4,7 @@ from .models import Post
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/posts.html'
+    template_name = 'blog/posts-list.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
     paginate_by = 5

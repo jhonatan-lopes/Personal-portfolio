@@ -15,6 +15,11 @@ class Post(models.Model):
         verbose_name="Title"
     )
 
+    slug = models.SlugField(
+        null=False,
+        unique=True,
+    )
+
     date_posted = models.DateTimeField(
         default=timezone.now
     )
@@ -40,11 +45,6 @@ class Post(models.Model):
     def formatted_content(self):
         "Render markdown to be displayed in template"
         return markdownify(self.content)
-    
-    @property
-    def slug_title(self):
-        "Slugify title for url generation"
-        return slugify(self.title)
 
     @staticmethod
     def get_tags_string(tags):
@@ -64,8 +64,9 @@ class Post(models.Model):
         return f"{self.date_posted.year} - {short_title}"
     
     def get_absolute_url(self):
-        return reverse("post_detail", 
+        return reverse("posts-detail", 
                         kwargs={
-                            "pk": self.pk, 
-                            "slug": self.slug_title})
+                            "year": self.date_posted.year,
+                            "month": self.date_posted.month,
+                            "slug": self.slug})
     

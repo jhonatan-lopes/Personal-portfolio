@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container post-container">
+    <div class="offset-md-1 offset-sm-0 col-sm-12 col-md-10 post">
+        <img src="{{ post.banner.url }}" alt="Post banner" class="img-fluid w-100 vh-25">
+        <h1 class="post-title">{{ post.title }}</h1>
+        <div class="container post-info text-muted d-flex justify-content-center">
+            <div class="post-info-text">
+                <p>{{ post.tags_list }}</p>
+                <p>{{ post.date_posted }}</p>
+            </div>
+        </div>
+        <div class="container post-content">
+            {{ post.formatted_content | safe }}
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}
