@@ -1,5 +1,6 @@
 from django.db import models
 from markdownx.models import MarkdownxField
+from markdownx.utils import markdownify
 import tagulous.models
 
 
@@ -49,6 +50,11 @@ class Project(models.Model):
     )
 
     content = MarkdownxField()
+
+    @property
+    def formatted_content(self):
+        "Render markdown to be displayed in template"
+        return markdownify(self.content)
 
     @staticmethod
     def get_tags_string(tags):
