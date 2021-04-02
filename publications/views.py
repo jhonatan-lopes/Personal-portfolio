@@ -5,6 +5,6 @@ from .models import Publication
 # Create your views here.
 class PublicationsListView(ListView):
     model = Publication
-    template_name = 'publications.html'
+    template_name = 'publications/publications.html'
     context_object_name = 'publications'
     ordering = ['kind','-year']
