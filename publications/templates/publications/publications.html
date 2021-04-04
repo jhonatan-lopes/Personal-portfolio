@@ -1,16 +1,17 @@
-{% extends 'main/base.html' %}
+{% extends 'main/base_listview.html' %}
 
+{% load static %}
 
+{% block bg_img %}
+    {% static "main/TechnicalDrawing.svg"%}
+{% endblock %}
 
-{% block content %}
+{% block section_title %}
+    Publications
+{% endblock %}
 
-<div class="container jumbotron">
-    <h1 class="text-center my-3 py-5">Publications</h1>
-</div>
-
-<div class="container">
-    <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-around">
-        {% for pub in publications %}
+{% block cards %}
+    {% for pub in publications %}
             <div class="col">
                 <div class="card pub-card h-100 text-center">
                     <strong class="py-2 text-primary">{{ pub.get_kind_display }}</strong>
@@ -21,8 +22,6 @@
                 </div>
             </div>
         {% endfor %}
-    </div>
-</div>
-
 {% endblock %}
+
 
