@@ -3,11 +3,12 @@
 :root{
   --dark-1: #343647;
   --dark-2: #252734;
+  --dark-3: #2D2F3E;
   --light-1: #fff;
   --light-2: #E9EAEB;
   --primary: #F78502;
-  --display-font-family:  'Merriweather', serif;
-  --highligh-font-family: 'Prompt', sans-serif;
+  --display-font-family:  'Prompt', serif;
+  --highlight-font-family: 'Prompt', sans-serif;
   --main-font-family: 'Quicksand', sans-serif;
 }
 
@@ -39,7 +40,8 @@ body {
 }
 
 .font-highlight {
-  font-family: var(--highlight-font-family)
+  font-family: var(--highlight-font-family);
+  font-weight: 500;
 }
 
 .font-main {
@@ -66,7 +68,6 @@ body {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  border-radius: .3rem;
   font-size: 2rem;
   font-weight: 400;
 }
@@ -75,34 +76,25 @@ body {
   font-size: 3.0rem;
 }
 
-/* Publications */
-
-.pub-title {
-  color: var(--light-1);
-  text-decoration: none;
-}
-
-a.pub-title:hover {
-  color: var(--light-2);
-  text-decoration: none;
-}
-
-/* Projects */
+/* Projects card */
 
 .proj-card {
-  background-color: rgba(255,255,255,0.05);
-  background-clip: border-box;
+  background: var(--dark-1);
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, var(--dark-1) 50%, var(--primary) 50.1%);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  display: flex;
-  border-radius: 0.25rem;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 1rem;
+  border-radius: 0 0 1rem 0;
+  transition: background-position 0.2s ease-out;
+  border: 0;
 }
 
 .proj-card:hover{
-  background-color: rgba(255,255,255,0.07);
+  background-position: 0 -100%;
   box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.24);
+}
+
+.proj-card:hover strong{
+  color: var(--dark-1);
 }
 
 .proj-title {
@@ -116,23 +108,130 @@ a.proj-title:hover {
 }
 
 .proj-card img {
-  width: 60%;
-  height: 200px;
-  opacity: 0.5;
-  background-color: var(--dark-1);
-  border-radius: 0.25rem 0rem 0rem 0.25rem;
+  width: 100%;
+  height: 15rem;
+  border-radius: 0 0 0 0;
+  object-fit: cover;
 }
 
-@media screen and (max-width: 750px) {
-  .proj-card {
-    flex-direction: column;
+.proj-categories {
+  font-family: var(--highlight-font-family);
+  font-weight: 500;
+  color: var(--primary);
+}
+
+/* Post */
+
+.post-container {
+  padding: 0;
+}
+
+.post {
+  background-color: var(--dark-2);
+  padding: 0;
+}
+
+.post img {
+  width: 100%;
+  height: 20vh;
+  object-fit: cover;
+}
+
+.post-title {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-family: var(--display-font-family);
+  font-weight: bold;
+  font-style: oblique;
+}
+
+.post-info {
+  background-color: var(--dark-3);
+  padding: 1rem 0 1rem 0;
+  text-align: start;
+  text-indent: 1rem;
+  font-family: var(--highlight-font-family);
+  font-weight: bold;
+}
+
+.post-info p{
+  margin: 0;
+}
+
+.post-info-text {
+  width: 100%;
+}
+
+.post-content {
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  text-align: start;
+  color: var(--light-2);
+  font-family: var(--main-font-family);
+}
+
+
+.post-content img {
+  object-fit: contain;
+}
+
+.post-content a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+@media screen and (min-width: 720px) {
+
+
+  .post-info {
+    text-indent: 1.5rem;
   }
 
-  .proj-card img {
-      width: 100%;
-      border-radius: 0.25rem 0.25rem 0rem 0rem;
+  .post-content {
+    max-width: 36rem;
   }
+
+  .post-info-text {
+    width: 36rem;
+  }
+
 } 
+
+
+/* Publications */
+
+
+
+.pub-card {
+  background: var(--dark-1);
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, var(--dark-1) 50%, var(--primary) 50.1%);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius: 0 0 1rem 0;
+  transition: background-position 0.2s ease-out;
+  border: 0;
+}
+
+.pub-card:hover{
+  background-position: 0 -100%;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12), 0 10px 10px rgba(0,0,0,0.24);
+}
+
+.pub-card:hover strong{
+  color: var(--dark-1);
+}
+
+.pub-title {
+  color: var(--light-1);
+  text-decoration: none;
+}
+
+a.pub-title:hover {
+  color: var(--light-2);
+  text-decoration: none;
+}
+
 
 /* Add a bar to the bottom of active link*/ 
 @media screen and (min-width: 600px) {
@@ -141,7 +240,7 @@ a.proj-title:hover {
   }
 } 
 
-/* Prosthetic Hand SVG */
+/* SVGs */
 
 .img-svg path, line, polyline {
   stroke: var(--light-1);
@@ -149,4 +248,45 @@ a.proj-title:hover {
 
 .img-svg {
   height: 500px;
+}
+
+.bg-svg-img {
+  stroke: var(--light-1);
+}
+
+.bg-svg-technical-drawing {
+  background: url('TechnicalDrawing.svg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+.banner {
+  background: var(--dark-2);
+  display: block;
+  height: 30vh;
+  width: 100%;
+  padding: 0;
+}
+
+
+.banner-text {
+    text-align: center;
+    color: var(--light-1);
+    opacity: 1.0 !important;
+    margin-top: auto;
+    font-size: 4rem;
+    font-family: var(--display-font-family);
+    font-weight: bold;
+    font-style: italic;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.bg-svg-technical-drawing path, line, polyline {
+  stroke: rgba(255,255,255,0.1);
+  fill: rgba(255,255,255,0.1);
 }

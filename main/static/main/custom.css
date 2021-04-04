@@ -68,7 +68,6 @@ body {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  border-radius: .3rem;
   font-size: 2rem;
   font-weight: 400;
 }
@@ -80,9 +79,9 @@ body {
 /* Projects card */
 
 .proj-card {
-  background: var(--dark-2);
+  background: var(--dark-1);
   background-size: 100% 200%;
-  background-image: linear-gradient(to bottom, var(--dark-2) 50%, var(--primary) 50.1%);
+  background-image: linear-gradient(to bottom, var(--dark-1) 50%, var(--primary) 50.1%);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius: 0 0 1rem 0;
   transition: background-position 0.2s ease-out;
@@ -95,7 +94,7 @@ body {
 }
 
 .proj-card:hover strong{
-  color: var(--dark-2);
+  color: var(--dark-1);
 }
 
 .proj-title {
@@ -205,9 +204,9 @@ a.proj-title:hover {
 
 
 .pub-card {
-  background: var(--dark-2);
+  background: var(--dark-1);
   background-size: 100% 200%;
-  background-image: linear-gradient(to bottom, var(--dark-2) 50%, var(--primary) 50.1%);
+  background-image: linear-gradient(to bottom, var(--dark-1) 50%, var(--primary) 50.1%);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius: 0 0 1rem 0;
   transition: background-position 0.2s ease-out;
@@ -220,7 +219,7 @@ a.proj-title:hover {
 }
 
 .pub-card:hover strong{
-  color: var(--dark-2);
+  color: var(--dark-1);
 }
 
 .pub-title {
@@ -250,3 +249,39 @@ a.pub-title:hover {
 .img-svg {
   height: 500px;
 }
+
+
+.bg-svg-technical-drawing {
+  background: url('TechnicalDrawing.svg');
+  
+}
+
+.bg-svg-img {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+.banner {
+  background: var(--dark-2);
+  display: block;
+  margin-top: 0;
+}
+
+
+.banner-text {
+    text-align: center;
+    color: var(--light-1);
+    margin-top: auto;
+    font-size: 4rem;
+    font-family: var(--display-font-family);
+    font-weight: bold;
+    font-style: italic;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+
+

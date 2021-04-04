@@ -45,7 +45,7 @@
                             <a class="nav-link" href="#">Abilities</a>
                             <a class="nav-link {% if 'project' in url_name %}active{% endif %}" href="{% url 'projects-list' %}">Projects</a>
                             <a class="nav-link {% if 'publication' in url_name %}active{% endif %}" href="{% url 'publications-list' %}">Publications</a>
-                            <a class="nav-link" href="#">Blog</a>
+                            <a class="nav-link {% if 'post' in url_name %}active{% endif %}" href="{% url 'posts-list' %}">Blog</a>
                             <a class="nav-link" href="#">Contact</a>
                         {% endwith %}
                     </div>
@@ -55,12 +55,11 @@
         </nav>
     </header>
 
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
     
-    {% block content %}
-    {% endblock %}
-    
-    
-
     <!--Footer-->
     <footer class="footer py-5 bg-dark-1 text-light">
         <div class="container text-center">

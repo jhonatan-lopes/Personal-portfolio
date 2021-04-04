@@ -1,12 +1,18 @@
-{% extends 'base.html' %}
+{% extends 'main/base.html' %}
+
+{% load static %}
 
 {% block content %}
 
-<div class="container jumbotron">
-    <h1 class="text-center my-3 py-5">Projects</h1>
-</div>
+<section class="p-0 text-center container-fluid bg-dark-2">
+    <div class="row p-0 bg-svg-img bg-svg-technical-drawing">
+        <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="banner-text">Projects</h1>
+        </div>
+    </div>
+</section>
 
-<div class="container">
+<div class="container py-5 px-0">
     <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-around">
         {% for project in projects %}
             <div class="col" style="max-width: 27rem;">
