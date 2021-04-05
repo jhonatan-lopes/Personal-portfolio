@@ -16,14 +16,14 @@
             <div class="card proj-card h-100">
                 <img src="{{ project.thumbnail.url }}" class="img-fluid" alt="">
                 <div class="card-body">
-                    <strong class="proj-categories">
+                    <strong class="proj-categories font-highlight">
                         {{ project.categories_list }}
                     </strong>
                     <br>
                     <a class="h3 proj-title card-title mb-2" href="{{ project.get_absolute_url }}">
                         {{ project.title }}
                     </a>
-                    <p class="text-light-regular card-text font-main">
+                    <p class="text-light-regular card-text text-muted">
                         {{ project.technologies_list }}
                     </p>
                 </div>

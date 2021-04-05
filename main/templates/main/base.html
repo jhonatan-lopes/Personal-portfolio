@@ -38,11 +38,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                 <!-- Navbar Right Side -->
-                    <div class="navbar-nav ms-auto">
+                    <div class="navbar-nav ms-auto font-display">
                         {% with request.resolver_match.url_name as url_name %}
-                            <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">HOME</a>
                             <a class="nav-link {% if url_name == 'about' %}active{% endif %}" href="{% url 'about' %}">About</a>
-                            <a class="nav-link" href="#">Abilities</a>
                             <a class="nav-link {% if 'project' in url_name %}active{% endif %}" href="{% url 'projects-list' %}">Projects</a>
                             <a class="nav-link {% if 'publication' in url_name %}active{% endif %}" href="{% url 'publications-list' %}">Publications</a>
                             <a class="nav-link {% if 'post' in url_name %}active{% endif %}" href="{% url 'posts-list' %}">Blog</a>

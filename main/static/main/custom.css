@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,700;1,900&family=Prompt:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
 :root{
   --dark-1: #343647;
   --dark-2: #252734;
@@ -7,9 +11,9 @@
   --light-1: #fff;
   --light-2: #E9EAEB;
   --primary: #F78502;
-  --display-font-family:  'Prompt', serif;
+  --display-font-family:  'Roboto Mono', monospace;
   --highlight-font-family: 'Prompt', sans-serif;
-  --main-font-family: 'Quicksand', sans-serif;
+  --main-font-family: 'Roboto Mono', monospace;
 }
 
 /* Body */
@@ -36,19 +40,21 @@ body {
 .font-display {
   font-family: var(--display-font-family);
   font-weight: 700;
-  font-style: oblique;
+  text-transform: uppercase;
 }
 
 .font-highlight {
   font-family: var(--highlight-font-family);
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .font-main {
-  font-family: var(--main-font-family)
+  font-family: var(--main-font-family);
+  font-weight: 400;
 }
 
 /* Text colors */
+
 
 .text-primary {
   color: var(--primary)!important;
@@ -141,9 +147,6 @@ a.proj-title:hover {
   text-align: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  font-family: var(--display-font-family);
-  font-weight: bold;
-  font-style: oblique;
 }
 
 .post-info {
@@ -151,8 +154,6 @@ a.proj-title:hover {
   padding: 1rem 0 1rem 0;
   text-align: start;
   text-indent: 1rem;
-  font-family: var(--highlight-font-family);
-  font-weight: bold;
 }
 
 .post-info p{
@@ -169,6 +170,7 @@ a.proj-title:hover {
   text-align: start;
   color: var(--light-2);
   font-family: var(--main-font-family);
+  line-height: 170%;;
 }
 
 
@@ -287,9 +289,6 @@ a.pub-title:hover {
     color: var(--light-1);
     margin-top: auto;
     font-size: 4rem;
-    font-family: var(--display-font-family);
-    font-weight: bold;
-    font-style: italic;
     padding-top: 7rem;
     padding-bottom: 7rem;
 }

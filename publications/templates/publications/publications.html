@@ -14,7 +14,7 @@
     {% for pub in publications %}
             <div class="col">
                 <div class="card pub-card h-100 text-center">
-                    <strong class="py-2 text-primary">{{ pub.get_kind_display }}</strong>
+                    <strong class="py-2 font-highlight text-primary">{{ pub.get_kind_display }}</strong>
                     <a class="h3 pub-title card-title pb-2" {% if pub.link %}href={{ pub.link }}{% endif %}>{{ pub.title }}</a>
                     <p class="m-0 text-muted">{{ pub.publisher }}</p>
                     <p class="m-0 text-muted">{{ pub.authors_list|safe }}</p>
