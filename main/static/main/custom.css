@@ -79,9 +79,9 @@ body {
 /* Projects card */
 
 .proj-card {
-  background: var(--dark-1);
+  background: var(--dark-2);
   background-size: 100% 200%;
-  background-image: linear-gradient(to bottom, var(--dark-1) 50%, var(--primary) 50.1%);
+  background-image: linear-gradient(to bottom, var(--dark-2) 50%, var(--primary) 50.1%);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius: 0 0 1rem 0;
   transition: background-position 0.2s ease-out;
@@ -204,9 +204,9 @@ a.proj-title:hover {
 
 
 .pub-card {
-  background: var(--dark-1);
+  background: var(--dark-2);
   background-size: 100% 200%;
-  background-image: linear-gradient(to bottom, var(--dark-1) 50%, var(--primary) 50.1%);
+  background-image: linear-gradient(to bottom, var(--dark-2) 50%, var(--primary) 50.1%);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius: 0 0 1rem 0;
   transition: background-position 0.2s ease-out;
@@ -230,6 +230,16 @@ a.proj-title:hover {
 a.pub-title:hover {
   color: var(--light-2);
   text-decoration: none;
+}
+
+.pub-card > hr {
+  color: var(--primary);
+  opacity: 1;
+  margin-top: 0;
+}
+
+.pub-card:hover hr {
+  color: var(--dark-2);
 }
 
 
@@ -284,4 +294,5 @@ a.pub-title:hover {
     padding-bottom: 7rem;
 }
 
+/* Education and experience cards in about page */
 
