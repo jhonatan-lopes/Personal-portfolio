@@ -9,10 +9,13 @@ class Education(models.Model):
         help_text="Example: PhD in Engineering Science",
     )
 
-    dates = models.CharField(
-        max_length=60,
-        default="",
-        help_text="Example: 2017-2019",
+    start_date = models.PositiveSmallIntegerField(
+        default=2020,
+    )
+
+    end_date = models.PositiveSmallIntegerField(
+        blank=True,
+        null=True,
     )
 
     institution = models.CharField(
@@ -24,6 +27,9 @@ class Education(models.Model):
     hyperlink = models.URLField(
         blank=True
     )
+
+    class Meta:
+        verbose_name = "degree"
 
     def __str__(self):
         return f"{self.title}"
@@ -57,10 +63,13 @@ class Experience(models.Model):
         help_text="Example: Postdoctoral researcher",
     )
 
-    dates = models.CharField(
-        max_length=60,
-        default="",
-        help_text="Example: 2020-2021",
+    start_date = models.PositiveSmallIntegerField(
+        default=2020,
+    )
+
+    end_date = models.PositiveSmallIntegerField(
+        blank=True,
+        null=True,
     )
 
     company = models.CharField(
