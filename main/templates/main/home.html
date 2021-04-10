@@ -1,44 +1,122 @@
-{% extends 'main/base.html' %}
+{% load static %}
 
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
-    <!-- I'm Jhonatan -->
-    <div class="my-3 jumbotron jumbotron-fluid bg-dark-1">
-        <div class="container font-display">
-            <h1 class="display-3">Hi, I'm Jhonatan</h1>
-            <div id="typed-strings">
-                <p>An <span class="text-primary">engineer</span></p>
-                <p>A <span class="text-primary">mechanical engineer</span></p>
-                <p>A <span class="text-primary">programmer</span></p>
-                <p>A <span class="text-primary">scientist</span></p>
-                <p>A <span class="text-primary">problem solver</span></p>
-                <p>A <span class="text-primary">problem solver</span>.</p>
+{% include 'main/head.html'%}
+
+<style>
+    body, html{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+</style>
+
+<body>
+    {% include "main/header.html" %}
+
+    <main>
+
+    <section class="container-fluid px-0 vh-100 bg-turbofan mb-5" id="home-banner">
+        <div class="row h-100 d-flex pb-0 pb-md-5 pe-5 ps-sm-5">
+            <div class="col-md-4 col-sm-0"></div>
+            <div class="align-self-end col-md-8 col-sm-12 pb-5">
+                <h1 class="text-main-title text-uppercase font-display">Jhonatan</h1>
+                <h1 class="text-main-title text-uppercase font-display">da Ponte</h1>
+                <h1 class="text-main-title text-uppercase font-display">Lopes</h1>
             </div>
-            <span id="typed" class="display-4"></span>
-            <br>
         </div>
-    </div>
+    </section>
+       
+    <!-- Intro -->
+    <section class="cover-container d-flex w-100 vh-75 p-3 mx-auto flex-column bg-dark-1" 
+        style="background-image:url({% static 'main/BoardEquations.svg' %});" id="intro">
+        <div class="row h-100 align-items-center d-flex text-center">
+            <div class="col-sm-12 mx-auto">
+                <h1 class="display-4 font-display">Hi there! I'm Jhonatan, </h1>
+                <div id="typed-strings">
+                    <p>An <span class="text-primary">engineer</span></p>
+                    <p>A <span class="text-primary">mechanical engineer</span></p>
+                    <p>A <span class="text-primary">programmer</span></p>
+                    <p>A <span class="text-primary">scientist</span></p>
+                    <p>A <span class="text-primary">problem solver</span></p>
+                    <p>A <span class="text-primary">problem solver</span>.</p>
+                </div>
+                <span id="typed" class="display-4 font-display"></span>
+            </div>
+        </div>      
+    </section>
 
-    <!-- My job is -->
-    <div class="my-3 jumbotron jumbotron-fluid bg-dark-2">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <div class="col-md-8">
-                    {% include "main/prosthetic_hand.html" %}
-                </div>
-                <div class="col-md-4">
-                    <p class="text-start">My job is to apply my skills to solve everyday problems, ranging from <emp class="text-primary">designing new prosthetic devices</emp> for children…</p>
+    <!-- Description -->
+    <section class="jumbotron jumbotron-fluid bg-dark-2 mb-0" id="job-description">
+        <div class="container g-4">
+            <div class="row d-flex align-items-center g-4">
+                <div class="col-md-6 col-sm-12 order-md-1 order-sm-1">
+                    <p class="text-end">My job is to apply my 
+                    skills to solve everyday problems, 
+                    ranging from to 
+                    <emp class="text-primary">developing mathematical models</emp>
+                    that allow us to understand better
+                    the behaviour of bolted joints in
+                    aircraft engines…</p>
                     <br>
                 </div>
-                <div class="col-md-4">
-                    <p class="text-end">…to <emp class="text-primary">developing mathematical models</emp> that allow us to understand why it's easier to pull out a wine cork after it's been twisted.</p>
-                    <br>
-                </div>
-                <div class="col-md-8">
+                <div class="col-md-6 col-sm-12 order-md-2 order-sm-2">
                     {% include "main/contact_graph.html" %}
                 </div>
+                <div class="col-md-6 col-sm-12 order-md-3 order-sm-4 order-4">
+                    {% include "main/prosthetic_hand.html" %}
+                </div>
+                <div class="col-md-6 col-sm-12 order-md-4 order-sm-3 order-3">
+                    <p class="text-start">…to
+                    <emp class="text-primary">designing new prosthetic devices</emp> 
+                    for children in low-and-middle-income countries.</p>
+                    <br>
+                </div> 
             </div>
         </div>
+    </section>
+
+    <!-- Equation divider -->
+    <div class="cover-container d-flex w-100 p-0 mx-auto flex-column my-0 bg-dark-1 bg-img-cover" 
+        style="background-image: 
+                url({% static 'main/BoardEquations.svg' %});
+                height: 200px;">
     </div>
 
-{% endblock %}
+    <!-- Bio -->
+    <section class="container-fluid position-relative p-0 mt-0 mb-5 mx-0 text-center bg-dark-1" id="bio">
+        <span class="d-block"><img src="{% static 'main/Profile.png' %}" class="img-profile position-relative mx-auto"></span>
+        <div class="container-fluid pt-15vh pb-5 px-5 position-relative bg-light-1">
+            <div class="col-lg-6 mx-auto p-sm-2 text-small text-dark mb-1 w-60ch">
+                <p class="">I'm fascinated by the development 
+                    and implementation of numerical methods and algorithms,
+                    from the modelling of complex mathematical and physical phenomenona to end-user 
+                    software development.
+                </p>
+                <p class="">My expertise is in computational solid 
+                    mechanics, where I have studied the behaviour of metals under 
+                    cyclical plasticity and contact mechanics.
+                </p>
+                <p class="">I also have experience with the design
+                of upper prosthetic limbs and performance analysis of Tesla turbines.
+                </p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+                    <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">ABOUT ME</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+    
+    {% include "main/footer.html" %}
+
+    {% include "main/scripts.html" %}
+
+    {% include "main/scripts_typedjs.html" %}    
+
+</body>
+</html>
