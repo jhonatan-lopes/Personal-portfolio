@@ -4,23 +4,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+
 :root{
-  --dark-1: #343647;
-  --dark-2: #252734;
-  --dark-3: #2D2F3E;
+  --dark-1: #000;
+  --dark-2: #0d0d0d;
+  --dark-3: #201b15;
   --light-1: #fff;
   --light-2: #E9EAEB;
-  --primary: #F78502;
-  --display-font-family:  'Roboto Mono', monospace;
+  --primary: #9E8568;
+  --secondary: #5A100F;
+  --display-font-family:  'IBM Plex Mono', monospace;
   --highlight-font-family: 'Prompt', sans-serif;
-  --main-font-family: 'Roboto Mono', monospace;
+  --main-font-family: 'IBM Plex Mono', monospace;
 }
 
+
+
 /* Body */
+
 body {
   background-color: var(--dark-1);
   color: var(--light-1)!important;
-  margin-top: 5rem;
   font-family: var(--main-font-family);
 }
 
@@ -28,11 +35,26 @@ body {
 /* Backgrounds */
 
 .bg-dark-1 {
-  background: var(--dark-1)
+  background: var(--dark-1);
 }
 
 .bg-dark-2 {
-  background: var(--dark-2)
+  background: var(--dark-2);
+}
+
+.bg-light-1 {
+  background: var(--light-1);
+}
+
+.bg-turbofan {
+  background: 
+    linear-gradient(180deg, #000000 7.79%, rgba(21, 20, 19, 0.05) 46.05%, #000000 85.93%),
+    url(TurbofanCover.jpg),
+    #121212;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
 }
 
 /* Font families */
@@ -69,17 +91,38 @@ body {
   font-family: 'Courgette', cursive;
 }
 
+/* Title text */
+
+.text-main-title {
+  font-size: 6rem;
+  text-align: end;
+}
+
+@media screen and (max-width: 768px) {
+  .text-main-title {
+    font-size: 4rem;
+    text-align: end;
+  }
+
+}
+
 /* Hero jumbotron */
 
 .jumbotron {
-  padding: 2rem 1rem;
+  padding: 3rem 3rem;
   margin-bottom: 2rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
 .typed-cursor{
   font-size: 3.0rem;
+}
+
+/* Full screen hero */
+
+.full-screen {
+  height: 100vh;
 }
 
 /* Projects card */
@@ -258,8 +301,9 @@ a.pub-title:hover {
   stroke: var(--light-1);
 }
 
-.img-svg {
-  height: 500px;
+.svg-img {
+  width: 500px;
+  min-width: 250px;
 }
 
 
@@ -272,9 +316,17 @@ a.pub-title:hover {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center top;
-  height: 100%;
+  height: 25vh;
   width: 100%;
   padding: 0;
+}
+
+.bg-img-cover {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  padding: 0;
+  object-fit: contain;
 }
 
 .banner {
@@ -293,5 +345,39 @@ a.pub-title:hover {
     padding-bottom: 7rem;
 }
 
-/* Education and experience cards in about page */
+/* Profile pic in home page */
 
+.img-profile {
+  border: 10px solid var(--primary);
+  height: 20vh;
+  width: auto;
+  top: 12vh;
+  z-index: 10;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+}
+
+
+.pt-15vh {
+  padding-top: 15vh;
+}
+
+.w-60ch {
+  max-width: 60ch;
+}
+
+.vh-75 {
+  height: 75vh;
+}
+
+.vh-50 {
+  height: 75vh;
+}
