@@ -4,22 +4,34 @@
 
 {% block content %}
 
-<section class="p-0 text-center container-fluid bg-dark-2">
-    <div class="row p-0 bg-svg-img" 
+<section class="text-center container-fluid bg-dark-2 mt-5">
+    <div class="row align-items-center d-flex p-0 bg-svg-img" 
         style="background-image: 
             url({% static 'main/TechnicalDrawing.svg' %});">
         <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="banner-text">About me</h1>
+            <h1 class="banner-text font-display">About me</h1>
         </div>
     </div>
 </section>
 
+<div class="container-fluid bg-light-1 text-dark text-center py-5">
+    <div class="w-60ch mx-auto text-center">
+        <p class="">My expertise is in computational solid 
+            mechanics, where I have studied the behaviour of metals under 
+            cyclical plasticity and contact mechanics.
+        </p>
+        <p class="">I also have experience with the design
+        of upper prosthetic limbs and performance analysis of Tesla turbines.
+        </p>
+    </div>
+    
+</div>
+
 <div class="container py-5 px-0">
+    
     <div class="row">
         <div class="col-lg-4 col-md-12">
-            <div class="text-end">
-                <h2>Education</h2>
-            </div>
+            <h2 class="text-center text-lg-end mb-4 mb-lg-0">Education</h2>
         </div>
         <div class="col-lg-8 col-md-12">
             <div class="row g-4 d-flex justify-content-around">
@@ -38,12 +50,12 @@
     </div>
 </div>
 
+<hr class="mx-5">
+
 <div class="container py-5 px-0">
     <div class="row">
         <div class="col-lg-4 col-md-12">
-            <div class="text-end">
-                <h2>Expertise</h2>
-            </div>
+            <h2 class="text-center text-lg-end mb-4 mb-lg-0">Expertise</h2>
         </div>
         <div class="col-lg-8 col-md-12">
             <div class="row g-4 d-flex justify-content-around">
@@ -61,12 +73,12 @@
     </div>
 </div>
 
+<hr class="mx-5">
+
 <div class="container py-5 px-0">
     <div class="row">
         <div class="col-lg-4 col-md-12">
-            <div class="text-end">
-                <h2>Experience</h2>
-            </div>
+            <h2 class="text-center text-lg-end mb-4 mb-lg-0">Experience</h2>
         </div>
         <div class="col-lg-8 col-md-12">
             <div class="row g-4 d-flex justify-content-around">
