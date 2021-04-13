@@ -1,6 +1,13 @@
 {% load static %}
 
 <!-- Typed javascript -->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11" type="text/js"></script>
-    <script src="{% static 'main/typing_animation.js'%}" type="text/js">
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+<script>
+    var typed = new Typed('#typed', {
+        stringsElement: '#typed-strings',
+        startDelay: 1000,
+        typeSpeed: 70,
+        backSpeed: 50,
+        backDelay: 700,
+    });
+</script>

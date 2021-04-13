@@ -4,17 +4,17 @@
 
 {% block content %}
 
-<section class="text-center container-fluid bg-dark-2 mt-5">
+<section class="text-center container-fluid bg-dark-1 mt-5">
     <div class="row align-items-center d-flex p-0 bg-svg-img" 
         style="background-image: 
-            url({% static 'main/TechnicalDrawing.svg' %});">
+            url({% static 'main/MyHobbiesPattern.svg' %});">
         <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="banner-text font-display">About me</h1>
         </div>
     </div>
 </section>
 
-<div class="container-fluid bg-light-1 text-dark text-center py-5">
+<div class="container-fluid bg-white text-dark text-center py-5">
     <div class="w-60ch mx-auto text-center">
         <p class="">My expertise is in computational solid 
             mechanics, where I have studied the behaviour of metals under 
@@ -26,6 +26,31 @@
     </div>
     
 </div>
+
+<div class="container py-5 px-0">
+    <div class="row">
+        <div class="col-lg-4 col-md-12">
+            <h2 class="text-center text-lg-end mb-4 mb-lg-0">Roles</h2>
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div class="row g-4 d-flex justify-content-around">
+                {% for exp in experiences %}
+                    <div class="col-lg-6 col-md-12">
+                        <div class="card pub-card p-2 h-100 text-center">
+                            <p class="h5 pub-title card-title pt-2 pb-0">{{ exp.title }}</p>
+                            <hr class="mx-2">
+                            <p class="my-0 text-muted">{{ exp.company }}</p>
+                            <p class="my-0 pb-0 text-muted">{{ exp.start_date }} - {{ exp.end_date|default_if_none:"Ongoing" }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr class="mx-5">
 
 <div class="container py-5 px-0">
     
@@ -73,29 +98,8 @@
     </div>
 </div>
 
-<hr class="mx-5">
 
-<div class="container py-5 px-0">
-    <div class="row">
-        <div class="col-lg-4 col-md-12">
-            <h2 class="text-center text-lg-end mb-4 mb-lg-0">Experience</h2>
-        </div>
-        <div class="col-lg-8 col-md-12">
-            <div class="row g-4 d-flex justify-content-around">
-                {% for exp in experiences %}
-                    <div class="col-lg-6 col-md-12">
-                        <div class="card pub-card p-2 h-100 text-center">
-                            <p class="h5 pub-title card-title pt-2 pb-0">{{ exp.title }}</p>
-                            <hr class="mx-2">
-                            <p class="my-0 text-muted">{{ exp.company }}</p>
-                            <p class="my-0 pb-0 text-muted">{{ exp.start_date }} - {{ exp.end_date|default_if_none:"" }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 {% endblock %}
