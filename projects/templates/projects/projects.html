@@ -12,19 +12,21 @@
 
 {% block cards %}
     {% for project in projects %}
-        <div class="col" style="max-width: 27rem;">
-            <div class="card proj-card h-100">
+        <div class="col-12 col-md-6 vh-50 me-auto {% if  forloop.counter|divisibleby:2  %} offset-md-6 {% endif %}">
+            <div class="card proj-card h-100 d-flex flex-column justify-content-end">
                 <img src="{{ project.thumbnail.url }}" class="img-fluid" alt="">
-                <div class="card-body">
+                <div class="card-body text-start">
+                    <div class="text-center">
+                        <a class="h3 proj-title card-title mb-2 font-display text-center" href="{{ project.get_absolute_url }}">
+                            {{ project.title }}
+                        </a>
+                    </div>
+                    <hr>
                     <strong class="proj-categories font-highlight">
                         {{ project.categories_list }}
                     </strong>
-                    <br>
-                    <a class="h3 proj-title card-title mb-2" href="{{ project.get_absolute_url }}">
-                        {{ project.title }}
-                    </a>
                     <p class="text-light-regular card-text text-muted">
-                        {{ project.technologies_list }}
+                        <i class="fas fa-tags"></i> {{ project.technologies_list }}
                     </p>
                 </div>
             </div>
