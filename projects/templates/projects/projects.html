@@ -12,7 +12,7 @@
 
 {% block cards %}
     {% for project in projects %}
-        <div class="col-12 col-md-6 vh-50 me-auto {% if  forloop.counter|divisibleby:2  %} offset-md-6 {% endif %}">
+        <div class="col-12 col-md-6 vh-50 me-auto">
             <div class="card proj-card h-100 d-flex flex-column justify-content-end">
                 <img src="{{ project.thumbnail.url }}" class="img-fluid" alt="">
                 <div class="card-body text-start">
@@ -23,7 +23,7 @@
                     </div>
                     <hr>
                     <strong class="proj-categories font-highlight">
-                        {{ project.categories_list }}
+                        <i class="fas fa-code"></i> {{ project.categories_list }}
                     </strong>
                     <p class="text-light-regular card-text text-muted">
                         <i class="fas fa-tags"></i> {{ project.technologies_list }}
