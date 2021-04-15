@@ -17,15 +17,15 @@
                 <img src="{{ project.thumbnail.url }}" class="img-fluid" alt="">
                 <div class="card-body text-start">
                     <div class="text-center">
-                        <a class="h3 proj-title card-title mb-2 font-display text-center" href="{{ project.get_absolute_url }}">
+                        <a class="h3 proj-title card-title mb-2 font-highlight text-center" href="{{ project.get_absolute_url }}">
                             {{ project.title }}
                         </a>
                     </div>
                     <hr>
-                    <strong class="proj-categories font-highlight">
+                    <strong class="card-text text-muted text-primary font-display">
                         <i class="fas fa-code"></i> {{ project.categories_list }}
                     </strong>
-                    <p class="text-light-regular card-text text-muted">
+                    <p class="card-text text-muted font-display">
                         <i class="fas fa-tags"></i> {{ project.technologies_list }}
                     </p>
                 </div>
