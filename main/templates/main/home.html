@@ -76,8 +76,8 @@
                     for children in low-and-middle-income countries.</p>   
                     <hr>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
-                        <button type="button" class="btn btn-primary btn-sm px-4 me-sm-3 font-highlight">My Projects</button>
-                        <button type="button" class="btn btn-primary btn-sm px-4 me-sm-3 font-highlight">My Publications</button>
+                        <a class="btn btn-primary btn-sm px-4 me-sm-3 font-highlight" href="{% url 'projects-list'%}">My Projects</a>
+                        <a class="btn btn-primary btn-sm px-4 me-sm-3 font-highlight" href="{% url 'publications-list'%}">My Publications</a>
                     </div>
                 </div>
             </div>
@@ -103,8 +103,8 @@
                 </p>
                 <hr>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
-                    <button type="button" class="btn btn-primary btn-sm px-4 me-sm-3 font-highlight">About Me</button>
-                    <button type="button" class="btn btn-primary btn-sm px-4 me-sm-3 font-highlight">My Blog</button>
+                    <a class="btn btn-primary btn-sm px-4 me-sm-3 font-highlight" href="{% url 'about'%}">About Me</a>
+                    <a class="btn btn-primary btn-sm px-4 me-sm-3 font-highlight" href="{% url 'posts-list'%}">My Blog</a>
                 </div>
             </div>
         </div>
