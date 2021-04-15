@@ -11,20 +11,32 @@
 {% endblock %}
 
 {% block cards %}
-    {% for post in posts %}
-            <div class="col" style="max-width: 27rem;">
-                <div class="card proj-card h-100">
-                    <img src="{{ post.thumbnail.url }}" class="img-fluid" alt="">
-                    <div class="card-body">
-                        <strong class="proj-categories">
-                            {{ post.tags_list }}
-                        </strong>
-                        <br>
-                        <a class="h3 proj-title card-title mb-2" href="{{ post.get_absolute_url }}">
-                            {{ post.title }}
-                        </a>
+    <div class="row row-cols-1 g-0 d-flex justify-content-around">
+        {% for post in posts %}
+            <div class="col" style="max-width: 900px;">
+                <div class="card bg-dark-2 mx-3 my-3 p-3" >
+                    <div class="row g-0">
+                        <div class="col-md-4 text-center align-self-center">
+                            <img src="{{ post.thumbnail.url }}" class="img-fluid post-thumbnail" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body text-center text-md-start">
+                                <a class="h3 proj-title card-title mb-2 font-highlight" href="{{ post.get_absolute_url }}">
+                                    {{ post.title }}
+                                </a>
+                                <p class="text-muted mt-2 mb-0 small">By JP Lopes - {{ post.date_posted | date:"F jS, Y" }}</p>
+                                <p class="proj-categories mb-0 mt-0 text-uppercase font-display text-muted small">
+                                    <strong>
+                                        <i class="fas fa-tags"></i> {{ post.tags_list }}
+                                    </strong>
+                                </p>
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <hr class="mx-0">
+            </div>  
         {% endfor %}
+    </div>
 {% endblock %}
