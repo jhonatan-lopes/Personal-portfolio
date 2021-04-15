@@ -7,7 +7,7 @@
         <img src="{{ post.banner.url }}" alt="Post banner" class="img-fluid w-100 vh-25">
         <h1 class="font-highlight text-center p-3">{{ post.title }}</h1>
         <div class="container post-info font-display text-muted d-flex justify-content-center">
-            <div class="post-info-text">
+            <div class="container w-60ch post-info-text">
                 <p><i class="fas fa-tags"></i> {{ post.tags_list }}</p>
                 <p>{{ post.date_posted | date:"F jS, Y" }}</p>
                 <p>By <a class="text-decoration-none" href="{% url 'posts-list' %}">JP Lopes</a></p>
