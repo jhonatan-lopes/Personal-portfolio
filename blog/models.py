@@ -5,6 +5,7 @@ from django.urls import reverse
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 import tagulous.models
+from publications.models import MyInfo
 
 
 class Post(models.Model):
@@ -20,8 +21,14 @@ class Post(models.Model):
         unique=True,
     )
 
+    posted_by = models.ForeignKey(
+        MyInfo,
+        on_delete=models.CASCADE
+    )
+
     date_posted = models.DateTimeField(
-        default=timezone.now
+        auto_now=True,
+        editable=False,
     )
 
     tags = tagulous.models.TagField(
