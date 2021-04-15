@@ -11,25 +11,27 @@
 {% endblock %}
 
 {% block cards %}
-    {% for project in projects %}
-        <div class="col-12 col-md-6 vh-50 me-auto">
-            <div class="card proj-card h-100 d-flex flex-column justify-content-end">
-                <img src="{{ project.thumbnail.url }}" class="img-fluid" alt="">
-                <div class="card-body text-start">
-                    <div class="text-center">
-                        <a class="h3 proj-title card-title mb-2 font-highlight text-center" href="{{ project.get_absolute_url }}">
-                            {{ project.title }}
-                        </a>
+    <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-around">
+        {% for project in projects %}
+            <div class="col-12 col-md-6 me-auto" style="height: 35vh;">
+                <div class="card proj-card h-100 d-flex flex-column justify-content-end">
+                    <img src="{{ project.thumbnail.url }}" class="img-fluid" alt="">
+                    <div class="card-body text-start">
+                        <div class="text-center">
+                            <a class="h3 proj-title card-title mb-2 font-highlight text-center" href="{{ project.get_absolute_url }}">
+                                {{ project.title }}
+                            </a>
+                        </div>
+                        <hr>
+                        <strong class="card-text text-muted text-primary font-display">
+                            <i class="fas fa-code"></i> {{ project.categories_list }}
+                        </strong>
+                        <p class="card-text text-muted font-display">
+                            <i class="fas fa-tags"></i> {{ project.technologies_list }}
+                        </p>
                     </div>
-                    <hr>
-                    <strong class="card-text text-muted text-primary font-display">
-                        <i class="fas fa-code"></i> {{ project.categories_list }}
-                    </strong>
-                    <p class="card-text text-muted font-display">
-                        <i class="fas fa-tags"></i> {{ project.technologies_list }}
-                    </p>
                 </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endblock %}
