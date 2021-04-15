@@ -2,14 +2,15 @@
 
 {% block content %}
 
-<div class="container post-container">
-    <div class="offset-md-1 offset-sm-0 col-sm-12 col-md-10 post">
+<div class="container px-0 pt-5">
+    <div class="col-12 col-md-10 col-lg-8 mx-auto post">
         <img src="{{ post.banner.url }}" alt="Post banner" class="img-fluid w-100 vh-25">
-        <h1 class="post-title">{{ post.title }}</h1>
-        <div class="container post-info text-muted d-flex justify-content-center">
+        <h1 class="font-highlight text-center p-3">{{ post.title }}</h1>
+        <div class="container post-info font-display text-muted d-flex justify-content-center">
             <div class="post-info-text">
-                <p>{{ post.tags_list }}</p>
-                <p>{{ post.date_posted }}</p>
+                <p><i class="fas fa-tags"></i> {{ post.tags_list }}</p>
+                <p>{{ post.date_posted | date:"F jS, Y" }}</p>
+                <p>By <a class="text-decoration-none" href="{% url 'posts-list' %}">JP Lopes</a></p>
             </div>
         </div>
         <div class="container post-content">

@@ -3,22 +3,21 @@
 
 {% block content %}
 
-<div class="container post-container">
-    <div class="offset-md-1 offset-sm-0 col-sm-12 col-md-10 post">
+<div class="container px-0 pt-5">
+    <div class="col-12 col-md-10 col-lg-8 mx-auto post">
         <img src="{{ project.banner.url }}" alt="Project banner" class="img-fluid w-100 vh-25">
-        <h1 class="post-title font-display">{{ project.title }}</h1>
-        <div class="container post-info font-highlight text-muted d-flex justify-content-center">
-            <div class="post-info-text">
-                <p>{{ project.categories_list }}</p>
-                <p>{{ project.technologies_list }}</p>
+        <h1 class="font-highlight text-center p-3">{{ project.title }}</h1>
+        <div class="container post-info font-display text-muted d-flex justify-content-center">
+            <div class="container w-60ch post-info-text">
+                <p><i class="fas fa-code"></i> {{ project.categories_list }}</p>
+                <p><i class="fas fa-tags"></i> {{ project.technologies_list }}</p>
                 <p>{{ project.year }}</p>
             </div>
         </div>
         <div class="container post-content">
             {{ project.formatted_content | safe }}
         </div>
-    </div>
-    
+    </div>  
 </div>
 
 {% include 'main/scripts_synthax.html'%}
