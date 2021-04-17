@@ -8,7 +8,7 @@ media
 
 # Secret info #
 secrets.py
-secrets.json
+/secrets.json
 
 # Backup files # 
 *.bak 
