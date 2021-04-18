@@ -11,20 +11,22 @@
 {% endblock %}
 
 {% block cards %}
-    {% for pub in publications %}
-            <div class="col">
-                <div class="card pub-card h-100 text-center">
-                    <strong class="py-2 font-highlight text-primary">{{ pub.get_kind_display }}</strong>
-                    <a class="h3 pub-title card-title pb-2 font-display" {% if pub.link %}href={{ pub.link }}{% endif %}>{{ pub.title }}</a>
-                    <hr class="mx-3">
-                    <div class="text-start ms-3">
-                    <p class="my-0 text-muted">{{ pub.publisher }}</p>
-                    <p class="my-0 text-muted">{{ pub.authors_list|safe }}</p>
-                    <p class="mt-0  text-muted">{{ pub.year }}</p>
+    <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-around">
+        {% for pub in publications %}
+                <div class="col">
+                    <div class="card pub-card h-100 text-center">
+                        <strong class="py-2 font-highlight text-primary">{{ pub.get_kind_display }}</strong>
+                        <a class="h3 pub-title card-title pb-2 font-display" {% if pub.link %}href={{ pub.link }}{% endif %}>{{ pub.title }}</a>
+                        <hr class="mx-3">
+                        <div class="text-start ms-3">
+                        <p class="my-0 text-muted">{{ pub.publisher }}</p>
+                        <p class="my-0 text-muted">{{ pub.authors_list|safe }}</p>
+                        <p class="mt-0  text-muted">{{ pub.year }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+    </div>
 {% endblock %}
 
 
