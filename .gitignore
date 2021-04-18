@@ -124,3 +124,6 @@ markdownx
 
 # Django static
 static/
+
+# VSCode
+.vscode
