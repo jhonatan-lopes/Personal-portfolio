@@ -13,12 +13,14 @@
         <!-- Copyright -->
         <div class="row ">
             <div class="col-md-12 mx-auto w-60ch">
-                <p><small class="text-muted">Website designed and coded by myself.</small></p>
+                {% url 'home' as home_view %}
+                {% if request.path == home_view %}
+                    <p><small class="text-muted">Website designed and coded by myself.</small></p>
+                {% endif %}
                 <p><small class="text-muted">&copy; Jhonatan da Ponte Lopes, 2021. All rights reserved.</small></p>
                 {% url 'about' as about_view %}
-                {% url 'contact' as contact_view %}
                 {% url 'posts-list' as blog_view %}
-                {% if  request.path == about_view or request.path == contact_view or request.path == blog_view%}
+                {% if  request.path == about_view or request.path == blog_view%}
                     <p class="text-decoration-none" style="font-size: 12px">
                         <small class="text-muted">Icons used in banner pattern made by 
                         <a class="text-decoration-none" href="https://www.flaticon.com/authors/nhor-phai">Nhor Phai</a>,
