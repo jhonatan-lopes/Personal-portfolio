@@ -58,7 +58,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tagulous',
     'markdownx',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -165,3 +164,5 @@ MARKDOWNX_MEDIA_PATH = datetime.now().strftime('markdownx/%Y/%m/%d')
 # If dealing with gifs, upload them to another site and post the 
 # url.
 MARKDOWNX_UPLOAD_CONTENT_TYPES = ['image/jpeg', 'image/png', 'image/svg+xml']
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
