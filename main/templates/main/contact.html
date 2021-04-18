@@ -1,0 +1,38 @@
+{% extends 'main/base_listview.html' %}
+
+{% load static %}
+
+{% block bg_img %}
+    {% static "main/BlogPattern.svg"%}
+{% endblock %}
+
+{% block section_title %}
+    Let's talk
+{% endblock %}
+
+{% block cards %}
+    <div class="alert alert-success" role="alert">
+        A simple success alert—check it out!
+    </div>
+    <div class="container w-60ch text-center p-3">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                {% for field in form %}
+                    <div class="mb-3">
+                        {{ field.errors }}
+                        <div class="visually-hidden form-label">{{ field.label_tag }}</div>
+                        {{ field }}
+                        {% if field.help_text %}
+                            <p class="help form-text text-muted">{{ field.help_text|safe }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </fieldset>
+            <br>
+            <div class="form-group">
+                <button class="btn btn-outline-primary font-highlight" type="submit">Send message</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
