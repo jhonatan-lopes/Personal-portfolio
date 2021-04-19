@@ -1,7 +1,5 @@
-from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models.deletion import CASCADE
-import tagulous.models
 
 class MyInfo(models.Model):
     my_initials = models.CharField(
@@ -9,6 +7,13 @@ class MyInfo(models.Model):
         max_length=50,
         verbose_name="My Initials",
         help_text="Example: J Doe",
+    )
+    email = models.EmailField(
+        default=""
+    )
+    profile_pic = models.ImageField(
+        default = "Default_project_pic.png",
+        upload_to = "Profile_pics",
     )
 
     class Meta:
