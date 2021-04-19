@@ -4,7 +4,7 @@ from .models import Education, Expertise, Experience
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
-
+from publications.models import MyInfo
 
 def home(request):
     return render(request,"main/home.html")
@@ -22,15 +22,16 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            subject = "Drjplopes.com Inquiry - " + form.cleaned_data['name']
+            subject = request.META['HTTP_HOST'] + " Inquiry - " + form.cleaned_data['name']
             body = {
                 'name': form.cleaned_data['name'], 
                 'email': form.cleaned_data['email_address'], 
                 'message':form.cleaned_data['message'], 
             }
+            sender = form.cleaned_data['email_address']
             message = "\n".join(body.values())
             try:
-                send_mail(subject, message, body["email"], ['admin@example.com']) 
+                send_mail(subject, message, sender, [MyInfo.load().email]) 
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             messages.success(request, 'Your message was sent successfuly!')
