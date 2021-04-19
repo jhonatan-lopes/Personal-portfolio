@@ -7,7 +7,9 @@ from django.http import HttpResponse
 from publications.models import MyInfo
 
 def home(request):
-    return render(request,"main/home.html")
+    home_context = {}
+    home_context["my_info"] = MyInfo.load()
+    return render(request,"main/home.html", context=home_context)
 
 def about(request):
     about_context = {}
