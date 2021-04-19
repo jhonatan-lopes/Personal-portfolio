@@ -9,11 +9,13 @@ class MyInfo(models.Model):
         help_text="Example: J Doe",
     )
     email = models.EmailField(
-        default=""
+        default="",
+        help_text="Email recipient for 'contact me' form"
     )
     profile_pic = models.ImageField(
         default = "Default_profile_pic.png",
         upload_to = "Profile_pics",
+        help_text = "Picture displayed at home page"
     )
 
     class Meta:
