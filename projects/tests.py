@@ -63,10 +63,8 @@ class ProjectTestCase(TestCase):
         """Detail views render properly for each dummy project."""
         proj1 = Project.objects.get(title=dummy1["title"])
         proj2 = Project.objects.get(title=dummy2["title"])
-        url1 = f'/projects/{proj1.slug}/'
-        url2 = f'/projects/{proj2.slug}/'
-        response1 = self.client.get(url1)
-        response2 = self.client.get(url2)
+        response1 = self.client.get(proj1.get_absolute_url())
+        response2 = self.client.get(proj2.get_absolute_url())
         self.assertEqual(response1.status_code, 200)
         self.assertEqual(response2.status_code, 200)
 
