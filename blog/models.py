@@ -21,9 +21,11 @@ class Post(models.Model):
         unique=True,
     )
 
+    DEFAULT_MYINFO_ID = 1
     posted_by = models.ForeignKey(
         MyInfo,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        default=DEFAULT_MYINFO_ID
     )
 
     date_posted = models.DateTimeField(
