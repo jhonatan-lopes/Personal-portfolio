@@ -12,7 +12,7 @@ class MyInfo(models.Model):
         default=""
     )
     profile_pic = models.ImageField(
-        default = "Default_project_pic.png",
+        default = "Default_profile_pic.png",
         upload_to = "Profile_pics",
     )
 
