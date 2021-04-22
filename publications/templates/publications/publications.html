@@ -16,7 +16,7 @@
                 <div class="col">
                     <div class="card pub-card h-100 text-center">
                         <strong class="py-2 font-highlight text-primary">{{ pub.get_kind_display }}</strong>
-                        <a class="h3 pub-title card-title pb-2 font-display" {% if pub.link %}href={{ pub.link }}{% endif %}>{{ pub.title }}</a>
+                        <a class="h3 pub-title card-title pb-2 font-display" {% if pub.link %}href={{ pub.link }} target="_blank" {% endif %}>{{ pub.title }}</a>
                         <hr class="mx-3">
                         <div class="text-start ms-3">
                         <p class="my-0 text-muted">{{ pub.publisher }}</p>
