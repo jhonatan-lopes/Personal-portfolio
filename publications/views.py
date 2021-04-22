@@ -8,3 +8,8 @@ class PublicationsListView(ListView):
     template_name = 'publications/publications.html'
     context_object_name = 'publications'
     ordering = ['kind','-year']
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Publications"
+        return context

@@ -18,5 +18,11 @@
     <link rel="stylesheet" type="text/css" href="{% static '/main/custom.css' %}">
 
     
-    <title>Dr Jhonatan da Ponte Lopes</title>
+
+    {% if title %}
+        <title>Dr JP Lopes | {{ title }}</title>
+    {% else %}
+        <title>Dr JP Lopes</title>
+    {% endif %}
+
 </head>
