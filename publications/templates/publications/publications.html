@@ -11,9 +11,9 @@
 {% endblock %}
 
 {% block cards %}
-    <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-around">
+    <div class="row row-cols-1 row-cols-md-2 g-md-4 d-flex justify-content-around">
         {% for pub in publications %}
-                <div class="col">
+                <div class="col-12 col-md-6 me-auto">
                     <div class="card pub-card h-100 text-center">
                         <strong class="py-2 font-highlight text-primary">{{ pub.get_kind_display }}</strong>
                         <a class="h3 pub-title card-title pb-2 font-display" {% if pub.link %}href={{ pub.link }} target="_blank" {% endif %}>{{ pub.title }}</a>
