@@ -35,8 +35,12 @@
         style="background-image:url({% static 'main/BoardEquations.svg' %});" id="intro">
         <div class="row h-100 align-items-center d-flex text-center">
             <div class="col-sm-12 mx-auto">
-                <h1 class="display-6 font-display">Hi there! I'm Jhonatan, </h1>
-                <div id="typed-strings">
+                <div id="typed-title-strings">
+                    <p class="display-6 font-display">Hi there! I'm Jhonatan,</p>
+                </div>
+                <span id="typed-title" class="display-6 font-display"></span>
+                <br>
+                <div id="typed-subtitle-strings" class="visually-hidden">
                     <p>An <span class="text-primary">engineer</span></p>
                     <p>A <span class="text-primary">mechanical engineer</span></p>
                     <p>A <span class="text-primary">programmer</span></p>
@@ -44,7 +48,7 @@
                     <p>A <span class="text-primary">problem solver</span></p>
                     <p>A <span class="text-primary">problem solver</span>.</p>
                 </div>
-                <span id="typed" class="display-6 font-display"></span>
+                <span id="typed-subtitle" class="display-6 font-display"></span>
                 <br>
             </div>
         </div>      
@@ -104,7 +108,7 @@
                 <hr>
                 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
                     <a class="btn btn-outline-primary btn-sm px-4 me-sm-3 font-highlight" href="{% url 'about'%}">About Me</a>
-                    <a class="btn btn-outline-primary btn-sm px-4 me-sm-3 font-highlight" href="{% url 'posts-list'%}">My Blog</a>
+                    <a class="btn btn-outline-primary btn-sm px-4 me-sm-3 font-highlight" href="{% url 'posts-list'%}">My Journal</a>
                 </div>
             </div>
         </div>

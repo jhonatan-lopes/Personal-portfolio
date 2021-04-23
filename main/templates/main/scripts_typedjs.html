@@ -2,12 +2,48 @@
 
 <!-- Typed javascript -->
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
 <script>
-    var typed = new Typed('#typed', {
-        stringsElement: '#typed-strings',
-        startDelay: 1000,
-        typeSpeed: 70,
-        backSpeed: 50,
-        backDelay: 700,
-    });
+
+    var typed = function(target,target_strings,onCompleteCallback){
+        return new Typed(target, {
+                        stringsElement: target_strings,
+                        startDelay: 1000,
+                        typeSpeed: 70,
+                        backSpeed: 50,
+                        backDelay: 700,
+                        onComplete: onCompleteCallback,
+        });
+    }
+    
+    
+
+    const intro = document.querySelector("#intro")
+
+    const options = {};
+
+    let observer = new IntersectionObserver(
+        function(entries, observer){
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    typed_title = typed(
+                        "#typed-title",
+                        "#typed-title-strings",
+                        onCompleteCallback = (self) => {
+                            self.cursor.remove();
+                            document.querySelector("#typed-subtitle-strings").classList.toggle('visually-hidden');
+                            typed_subtitle = typed(
+                                "#typed-subtitle",
+                                "#typed-subtitle-strings",
+                                onCompleteCallback = (self) => {}
+                            );
+                        });
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        options);
+    
+    observer.observe(intro);
+
 </script>
