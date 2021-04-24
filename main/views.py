@@ -17,6 +17,7 @@ def about(request):
     about_context["educations"] = Education.objects.all().order_by("-end_date")
     about_context["expertises"] = Expertise.objects.all()
     about_context["experiences"] = Experience.objects.all().order_by("end_date")
+    about_context["my_info"] = MyInfo.load()
     about_context["page_title"] = "About"
 
     return render(request, "main/about.html", context=about_context)
