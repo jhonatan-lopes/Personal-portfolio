@@ -18,9 +18,12 @@ from django.urls import path, include
 from django.conf.urls import url
 from django.conf import settings
 from django.conf.urls.static import static
+from .settings import get_secret
+
+ADMIN_URL = get_secret("ADMIN_URL")
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(ADMIN_URL, admin.site.urls),
     path('', include('main.urls')),
     path('', include('publications.urls')),
     path('', include('projects.urls')),
