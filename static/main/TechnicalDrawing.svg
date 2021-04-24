@@ -7,13 +7,13 @@ viewBox="0 0 1700 500"
  <defs>
   <style type="text/css">
    <![CDATA[
-    .str1 {stroke:rgba(255,255,255,0.1);stroke-width:1.11;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}
-    .str2 {stroke:rgba(255,255,255,0.1);stroke-width:0.89;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}
-    .str0 {stroke:rgba(255,255,255,0.1);stroke-width:0.89;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}
+    .str1 {stroke:#3D3329;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}
+    .str2 {stroke:#3D3329;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}
+    .str0 {stroke:#3D3329;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}
     .fil3 {fill:none}
     .fil0 {fill:none;fill-rule:nonzero}
-    .fil2 {fill:rgba(255,255,255,0.1)}
-    .fil1 {fill:rgba(255,255,255,0.1);fill-rule:nonzero}
+    .fil2 {fill:#3D3329}
+    .fil1 {fill:#3D3329;fill-rule:nonzero}
    ]]>
   </style>
  </defs>
