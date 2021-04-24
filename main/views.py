@@ -17,7 +17,7 @@ def about(request):
     about_context["educations"] = Education.objects.all().order_by("-end_date")
     about_context["expertises"] = Expertise.objects.all()
     about_context["experiences"] = Experience.objects.all().order_by("end_date")
-    about_context["title"] = "About"
+    about_context["page_title"] = "About"
 
     return render(request, "main/about.html", context=about_context)
 
@@ -41,4 +41,14 @@ def contact(request):
             return redirect ("contact")
       
     form = ContactForm()
-    return render(request, "main/contact.html", {'form':form, 'title': "Let's Talk"})
+    return render(request, "main/contact.html", {'form':form, 'page_title': "Let's Talk"})
+
+
+class PageTitleMixin(object):
+    def get_page_title(self, context):
+        return getattr(self, "page_title","")
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["page_title"] = self.get_page_title(context)
+        return context
