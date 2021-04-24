@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Experience, Education, Expertise
-
+from .models import Experience, Education, Expertise, MyInfo
+import tagulous.admin
 
 class EducationAdmin(admin.ModelAdmin):
     list_display = ["title", "start_date", "end_date", "institution"]
@@ -14,3 +14,12 @@ class ExperienceAdmin(admin.ModelAdmin):
     list_display = ["title", "start_date", "end_date", "company"]
 admin.site.register(Experience, ExperienceAdmin)
 
+class MyInfoAdmin(admin.ModelAdmin):
+    list_display = ["my_initials"]
+
+    def has_add_permission(self, request, obj=None):
+        return False
+    
+    def has_delete_permission(self, request, obj=None):
+        return False
+tagulous.admin.register(MyInfo, MyInfoAdmin)

@@ -4,7 +4,7 @@ from .models import Education, Expertise, Experience
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
-from publications.models import MyInfo
+from .models import MyInfo
 
 def home(request):
     home_context = {}
