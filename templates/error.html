@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% include 'main/head.html'%}
+
+<body class="vh-100 bg-svg-img" style="background-image:url({% static 'main/BoardEquations.svg' %});">
+    <div class="container-fluid h-100 d-flex  align-items-center">
+        <div class="row-cols-1 px-2 px-md-5 text-start w-60ch mx-auto">
+            <h1 class="col font-highlight" style="font-size:7rem;">
+                {% block error_code %}
+                    404
+                {% endblock %}
+            </h1>
+            <p class="col h5 font-display px-0">
+                {% block error_message %}
+                    Just like Navier-Stokes analytical general solution,
+                    there is nothing here yet.
+                {% endblock %}
+            </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+                <a class="btn btn-outline-primary btn-sm px-4 me-sm-3 font-highlight" 
+                    href="{% url 'home'%}">Take me home</a>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
