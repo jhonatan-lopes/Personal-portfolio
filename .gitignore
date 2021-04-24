@@ -122,8 +122,6 @@ GitHub.sublime-settings
 # Markdown X
 markdownx
 
-# Django static
-static/
 
 # VSCode
 .vscode/*
