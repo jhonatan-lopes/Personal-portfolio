@@ -1,6 +1,6 @@
 from django.test import TestCase
-from .models import Publication, MyInfo
-
+from .models import Publication
+from main.models import MyInfo
 
 # Dummy post data:
 post1 = {"title": "The axisymmetric shrink fit problem subjected to torsion",
@@ -15,39 +15,6 @@ post2 = {"title": "A sample book chapter",
     "year": "1999",
     "kind": Publication.BOOK,
 }
-
-class MyInfoTestCase(TestCase):
-
-    def test_myinfo_load_create(self):
-        """MyInfo.load method. It should return a MyInfo object with pk=1."""
-        MyInfo.objects.create(my_initials="T User")
-        myinfo = MyInfo.load()
-        self.assertEqual(myinfo.pk,1)
-    
-    def test_myinfo_load_existing(self):
-        """MyInfo.load method. It should return a MyInfo object with pk=1.
-        If object doesn't exist, create it."""
-        MyInfo.objects.create(my_initials="JP Lopes")
-        myinfo = MyInfo(my_initials="T User")
-        myinfo.save()
-        self.assertEqual(myinfo.pk,1)
-        self.assertEqual(myinfo.my_initials,"T User")
-    
-    def test_myinfo_save(self):
-        """MyInfo.save method. There should still be only one instance
-        after saving."""
-        MyInfo.objects.create(my_initials="JP Lopes")
-        myinfo = MyInfo(my_initials="T User")
-        myinfo.save()
-        self.assertEqual(myinfo.pk,1)
-        self.assertEqual(myinfo.my_initials,"T User")
-    
-    def test_myinfo_delete(self):
-        """Delete shouldn't alter anything """
-        myinfo = MyInfo.objects.create(my_initials="JP Lopes")
-        myinfo.delete()
-        self.assertEqual(len(MyInfo.objects.all()),1)
-        self.assertEqual(MyInfo.objects.get(pk=1),myinfo)
 
 class PublicationTestCase(TestCase):
     def setUp(self):

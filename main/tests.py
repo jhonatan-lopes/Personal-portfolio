@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Experience, Education, Expertise
+from .models import Experience, Education, Expertise, MyInfo
 
 class PageTests(TestCase):
 
@@ -7,10 +7,10 @@ class PageTests(TestCase):
         """Home page is responding. """
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
-
-    def test_about_page_status_code(self):
+    
+    def test_contact_page_status_code(self):
         """About page is responding. """
-        response = self.client.get('/about/')
+        response = self.client.get('/contact/')
         self.assertEqual(response.status_code, 200)
 
 # Dummy Test Data:
@@ -32,6 +32,39 @@ dummy_job_1 = {"title": "Job 1", "start_date": 2020}
 dummy_job_2 = {"title": "Job 2", "start_date": 1985, "end_date": 1991}
 
 
+class MyInfoTestCase(TestCase):
+
+    def test_myinfo_load_create(self):
+        """MyInfo.load method. It should return a MyInfo object with pk=1."""
+        MyInfo.objects.create(my_initials="T User")
+        myinfo = MyInfo.load()
+        self.assertEqual(myinfo.pk,1)
+    
+    def test_myinfo_load_existing(self):
+        """MyInfo.load method. It should return a MyInfo object with pk=1.
+        If object doesn't exist, create it."""
+        MyInfo.objects.create(my_initials="JP Lopes")
+        myinfo = MyInfo(my_initials="T User")
+        myinfo.save()
+        self.assertEqual(myinfo.pk,1)
+        self.assertEqual(myinfo.my_initials,"T User")
+    
+    def test_myinfo_save(self):
+        """MyInfo.save method. There should still be only one instance
+        after saving."""
+        MyInfo.objects.create(my_initials="JP Lopes")
+        myinfo = MyInfo(my_initials="T User")
+        myinfo.save()
+        self.assertEqual(myinfo.pk,1)
+        self.assertEqual(myinfo.my_initials,"T User")
+    
+    def test_myinfo_delete(self):
+        """Delete shouldn't alter anything """
+        myinfo = MyInfo.objects.create(my_initials="JP Lopes")
+        myinfo.delete()
+        self.assertEqual(len(MyInfo.objects.all()),1)
+        self.assertEqual(MyInfo.objects.get(pk=1),myinfo)
+
 class AboutPageTestCase(TestCase):
     def setUp(self):
         Education.objects.create(**dummy_edu_1)
@@ -40,7 +73,14 @@ class AboutPageTestCase(TestCase):
         Expertise.objects.create(**dummy_exp_2)
         Experience.objects.create(**dummy_job_1)
         Experience.objects.create(**dummy_job_2)
-    
+        MyInfo.objects.create(my_initials="JP Lopes")
+        MyInfo.load()
+
+    def test_about_page_status_code(self):
+        """About page is responding. """
+        response = self.client.get('/about/')
+        self.assertEqual(response.status_code, 200)
+
     def test_about_page_education_context(self):
         """About view sends adequate number of eduction objects."""
         response = self.client.get('/about/')

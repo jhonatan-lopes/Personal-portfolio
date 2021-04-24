@@ -17,6 +17,7 @@ class MyInfo(models.Model):
         help_text = "Picture displayed at home page"
     )
     cv = models.FileField(
+        default="Default_CV.pdf",
         upload_to="CV",
         help_text = "Resume/CV to be made available for download at about page"
     )
