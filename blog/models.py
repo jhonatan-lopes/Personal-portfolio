@@ -44,7 +44,7 @@ class Post(models.Model):
     )
 
     banner = models.ImageField(
-        default = "Default_project_banner.svg",
+        default = "Default_blogpost_banner.svg",
         upload_to = "BlogBanners",
     )
 
