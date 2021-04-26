@@ -41,13 +41,13 @@ class Project(models.Model):
     )
 
     thumbnail = models.ImageField(
-        default = "Default_project_thumbnail.png",
-        upload_to = "Projects thumbnails",
+        default = "Default_project_thumbnail.svg",
+        upload_to = "ProjectThumbnails",
     )
 
     banner = models.ImageField(
-        default = "Default_project_banner.png",
-        upload_to = "Projects banners",
+        default = "Default_project_banner.svg",
+        upload_to = "ProjectBanners",
     )
 
     hyperlink = models.URLField(

@@ -39,13 +39,13 @@ class Post(models.Model):
     )
 
     thumbnail = models.ImageField(
-        default = "Default_blogpost_thumbnail.png",
-        upload_to = "Blog thumbnails",
+        default = "Default_blogpost_thumbnail.svg",
+        upload_to = "BlogThumbnails",
     )
 
     banner = models.ImageField(
-        default = "Default_project_banner.png",
-        upload_to = "Blog banners",
+        default = "Default_project_banner.svg",
+        upload_to = "BlogBanners",
     )
 
     content = MarkdownxField()
